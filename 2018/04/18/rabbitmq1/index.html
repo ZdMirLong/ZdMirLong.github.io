@@ -15,17 +15,20 @@
 
 
 
-<meta name="description" content="人不如初,颜不如姑">
-<meta name="keywords" content="Ethan个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ethan个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
+<meta name="keywords" content="rabbitmq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rabbitmq基本概念">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/rabbitmq1/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="人不如初,颜不如姑">
+<meta property="og:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdn.net/20170209145852454?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2hvYW1peWFuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-04-18T14:54:26.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ethan个人博客">
-<meta name="twitter:description" content="人不如初,颜不如姑">
+<meta name="twitter:title" content="rabbitmq基本概念">
+<meta name="twitter:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170209145852454?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2hvYW1peWFuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2018 | Ethan个人博客</title>
+<title>rabbitmq基本概念 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,8 +70,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -270,122 +273,211 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-rabbitmq1" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/04/18/rabbitmq1/" class="archive-article-date">
-      <time datetime="2018-04-18T14:26:55.000Z" itemprop="datePublished">04-18</time>
+    <div class="article-meta">
+      <a href="/2018/04/18/rabbitmq1/" class="article-date">
+      <time datetime="2018-04-18T14:26:55.000Z" itemprop="datePublished">2018-04-18</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/18/rabbitmq1/">rabbitmq基本概念</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rabbitmq基本概念
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/04/18/identityserver/" class="archive-article-date">
-      <time datetime="2018-04-18T14:19:42.000Z" itemprop="datePublished">04-18</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/18/identityserver/">identityserver</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。<br><a id="more"></a> </excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h4 id="rabbitmq基本概念"><a href="#rabbitmq基本概念" class="headerlink" title="rabbitmq基本概念"></a>rabbitmq基本概念</h4><ol>
+<li><p>什么是rabbitmq </p>
+<blockquote>
+<p> Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。</p>
+</blockquote>
+</li>
+<li><p>为什么使用mq?</p>
+<blockquote>
+<p> 场景说明：用户注册后，需要发注册邮件和注册短信,传统的做法有两种1.串行的方式;2.并行的方式<br>(1)串行方式:将注册信息写入数据库后,发送注册邮件,再发送注册短信,以上三个任务全部完成后才返回给客户端。 这有一个问题是,邮件,短信并不是必须的,它只是一个通知,而这种做法让客户端等待没 有必要等待的东西<br> <img src="https://img-blog.csdn.net/20170209145852454?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2hvYW1peWFuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+</blockquote>
+</li>
+</ol>
+<p>实际上我们并不需要知道短信是否发送成功,因为我们在发送短信时只需要将对应的参数传给调用的第三方服务发送即可.如果第三方短信平台因为网络或者其他问题,导致无法返回响应结果,程序也就在这里阻塞而无法操作.</p>
+<ol start="3">
+<li>解决 <blockquote>
+<p>引入消息队列后，把发送邮件,短信不是必须的业务逻辑异步处理,通过消息队列在去执行发送功能</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>关于mq的相关概念可以去查看官方文档 这里不再过多阐述</strong></p>
+<p><strong>以下是自己的理解,如有不对,还请纠正,谢谢! </strong></p>
+<ul>
+<li>生成者  用于发送消息的程序</li>
+<li>消费者  用于消费消息的程序</li>
+<li>队列 暂存消息的缓存区<blockquote>
+<p>rabbitmq的核心思想是 生成者不直接发送任何消息到队列,而实际上生产者并不知道 消息是否会被传送到队列.相反 ,生产者只能将信息发送到exchange交换器中,而交换机负责接收生产者发送的消息,并且将消息发送到指定的队列</p>
+</blockquote>
+</li>
+<li>消息交换机type的类型 创建交换机时需要channel.ExchangeDeclare(name, type,true,false,null);<ul>
+<li>direct 直接的</li>
+<li>Topic  主题</li>
+<li>Headers 标题</li>
+<li>Fanout  分列</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Direct Exchange – 处理路由键。需要将一个队列绑定到交换机上，要求该消息与一个特定的路由键完全匹配。这是一个完整的匹配。<br>如果一个队列绑定到该交换机上要求路由键 “key”，则只有被标记为“key”的消息才被转发，只会转发key</p>
+</blockquote>
+<blockquote>
+<p>Topic Exchange将路由值与某种模式进行匹配,此时队列需要绑定在一个模式上.符号“#”匹配一个或多个词，符号“<em>”匹配不多不少一个词。因此“audit.#”能够匹配到“audit.irs.corporate”，但是“audit.</em>” 只会匹配到“audit.irs”。  <a href="http://www.cnblogs.com/lrzr/p/7365731.html" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+<blockquote>
+<p>Fanout Exchange – 不处理路由键。你只需要简单的将队列绑定到交换机上。 Fanout交换机转发消息是最快的。</p>
+</blockquote>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/04/18/identityserver/">
+                    identityserver
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#rabbitmq基本概念"><span class="toc-number">1.</span> <span class="toc-text">rabbitmq基本概念</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"rabbitmq基本概念　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2161435';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/04/18/identityserver/" title="下一篇: identityserver">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/04/18/hello-world/" class="archive-article-date">
-      <time datetime="2018-04-18T12:16:06.866Z" itemprop="datePublished">04-18</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/identityserver/">identityserver</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/hello-world/">Hello World</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/18/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
