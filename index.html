@@ -198,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core-webapi/">-[.net core ,webapi]</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
                     </div>
                 </section>
                 
@@ -277,11 +277,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-usehexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-webapi1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/19/usehexo/" class="article-date">
-      <time datetime="2018-04-19T05:39:54.000Z" itemprop="datePublished">2018-04-19</time>
+      <a href="/2018/04/19/webapi1/" class="article-date">
+      <time datetime="2018-04-19T05:51:10.000Z" itemprop="datePublished">2018-04-19</time>
 </a>
 
 
@@ -296,7 +296,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/usehexo/">usehexo</a>
+      <a class="article-title" href="/2018/04/19/webapi1/">.net core webapi使用</a>
     </h1>
   
 
@@ -306,7 +306,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+              <excrept in="" index="" |="" 摘要="">
+
+<p>什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。</p>
+<blockquote>
+<p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobile devices. ASP.NET Web API   is an ideal platform for building RESTful applications on the .NET Framework.</p>
+</blockquote>
+<p>Web API在ASP.NET完整框架中地位如下图，与SignalR一起同为构建Service的框架。Web API负责构建http常规服务，而SingalR主要负责的是构建实时服务，例如股票，聊天室，在线游戏等实时性要求比较高的服务。<br><img src="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg" alt="图片"></p>
+<p>Web API最重要的是可以构建面向各种客户端的服务。另外与WCF REST Service不同在于，Web API利用Http协议的各个方面来表达服务(例如 URI/request response header/caching/versioning/content format)，因此就省掉很多配置。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg" alt="图片"></p>
+<p>当你遇到以下这些情况的时候，就可以考虑使用Web API了。<br>
+          
       
     </div>
     
@@ -315,6 +325,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core-webapi/">-[.net core ,webapi]</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/04/19/webapi1/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
