@@ -14,21 +14,19 @@
 <meta name="author" content="Ethan" />
 
 
-    
-    
 
-
-<meta name="description" content="人不如初,颜不如姑">
-<meta name="keywords" content="Ethan个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ethan个人博客">
-<meta property="og:url" content="http://ambiton.xin/index.html">
+<meta name="description" content="使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化 使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化   生产者步骤 创建ConnectionFactory连接工厂   创建连接connection 创建信道 申明队列 申明交换器 ExchangeDeclare 将队列与交换器绑定 QueueBind 创建属性 设置消息持久化 Persistent 发送消">
+<meta name="keywords" content="rabbitmq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rabbitmq3">
+<meta property="og:url" content="http://ambiton.xin/2018/04/19/rabbitmq3/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="人不如初,颜不如姑">
+<meta property="og:description" content="使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化 使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化   生产者步骤 创建ConnectionFactory连接工厂   创建连接connection 创建信道 申明队列 申明交换器 ExchangeDeclare 将队列与交换器绑定 QueueBind 创建属性 设置消息持久化 Persistent 发送消">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-19T05:17:33.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ethan个人博客">
-<meta name="twitter:description" content="人不如初,颜不如姑">
+<meta name="twitter:title" content="rabbitmq3">
+<meta name="twitter:description" content="使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化 使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化   生产者步骤 创建ConnectionFactory连接工厂   创建连接connection 创建信道 申明队列 申明交换器 ExchangeDeclare 将队列与交换器绑定 QueueBind 创建属性 设置消息持久化 Persistent 发送消">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,13 +54,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Ethan个人博客</title>
+<title>rabbitmq3 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -71,8 +67,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -275,9 +271,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-rabbitmq3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rabbitmq3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/04/19/rabbitmq3/" class="article-date">
@@ -295,12 +289,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/rabbitmq3/">rabbitmq3</a>
+    <h1 class="article-title" itemprop="name">
+      rabbitmq3
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -337,219 +342,70 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rabbitmq2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/19/rabbitmq2/" class="article-date">
-      <time datetime="2018-04-19T05:05:07.000Z" itemprop="datePublished">2018-04-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
-<blockquote>
-<p>要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.</p>
-</blockquote>
-<ul>
-<li>新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 <code>Rabbitmq.Client</code>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/04/19/rabbitmq2/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rabbitmq1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/18/rabbitmq1/" class="article-date">
-      <time datetime="2018-04-18T14:26:55.000Z" itemprop="datePublished">2018-04-18</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/rabbitmq1/">rabbitmq基本概念</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""><br>Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/04/18/rabbitmq1/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-identityserver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/18/identityserver/" class="article-date">
-      <time datetime="2018-04-18T14:19:42.000Z" itemprop="datePublished">2018-04-18</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/04/19/rabbitmq2/">
+                    rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/identityserver/">identityserver</a>
-    </h1>
-  
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用一个生产者-多个消费时需要将队列与路由交换器绑定-并设置消息持久化"><span class="toc-number">1.</span> <span class="toc-text">使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生产者步骤"><span class="toc-number"></span> <span class="toc-text">生产者步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消费者"><span class="toc-number"></span> <span class="toc-text">消费者</span></a>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"rabbitmq3　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -557,9 +413,53 @@
 
 
 
+    
+         <section class="changyan" id="comments">    
+   <!--PC和WAP自适应版-->
+<div id="SOHUCS"  sid="rabbitmq3"></div> 
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cytzwJlWe',
+conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
+});
+</script>
+<a href="#SOHUCS" id="changyan_count_unit"></a>评论数
+<a href="#SOHUCS" id="changyan_parti_unit"></a>参与数
+<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">
+</script>
+    
+    <script> loadComment(); </script>
 
-  
-  
+</section>
+    
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/04/19/rabbitmq2/" title="下一篇: rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/rabbitmq3/">rabbitmq3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/identityserver/">identityserver</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -613,10 +513,6 @@
         })
     </script>
 
-
-    
-
-     
 
 
 
