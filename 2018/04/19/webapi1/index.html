@@ -16,7 +16,7 @@
 
 
 <meta name="description" content="什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。  ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobil">
-<meta name="keywords" content="-[.net core ,webapi]">
+<meta name="keywords" content=".net core,.net core webapi">
 <meta property="og:type" content="article">
 <meta property="og:title" content=".net core webapi使用">
 <meta property="og:url" content="http://ambiton.xin/2018/04/19/webapi1/index.html">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/large/006MNXdAgy1fqhycrdc0gj30pz0ep3yq.jpg">
-<meta property="og:updated_time" content="2018-04-19T06:42:49.928Z">
+<meta property="og:updated_time" content="2018-04-19T06:47:46.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=".net core webapi使用">
 <meta name="twitter:description" content="什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。  ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobil">
@@ -200,7 +200,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core-webapi/">-[.net core ,webapi]</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core-webapi/">.net core webapi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
                     </div>
                 </section>
                 
@@ -304,10 +304,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/webapi/">webapi</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core-webapi/">-[.net core ,webapi]</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core-webapi/">.net core webapi</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -392,7 +396,10 @@
 </tr>
 </tbody>
 </table>
-<h4 id="实例如下"><a href="#实例如下" class="headerlink" title="实例如下"></a>实例如下</h4><p>_ get请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class HomeController : Controller</span><br><span class="line">   &#123;</span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;paged&quot;)]</span><br><span class="line">       public async  Task&lt;IEnumerable&lt;string&gt;&gt; Get()&#123;</span><br><span class="line"></span><br><span class="line">           await Task.Delay(500);</span><br><span class="line">           return new string []&#123;&quot;hvalue1&quot;,&quot;hvalue2&quot; &#125;;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;param name=&quot;id&quot;&gt;&lt;/param&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;&#123;id&#125;&quot;)]</span><br><span class="line">       public string Get(int id)</span><br><span class="line">       &#123;</span><br><span class="line"></span><br><span class="line">           return id + &quot;h&quot;;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="实例如下"><a href="#实例如下" class="headerlink" title="实例如下"></a>实例如下</h4><ul>
+<li>get请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class HomeController : Controller</span><br><span class="line">   &#123;</span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;paged&quot;)]</span><br><span class="line">       public async  Task&lt;IEnumerable&lt;string&gt;&gt; Get()&#123;</span><br><span class="line"></span><br><span class="line">           await Task.Delay(500);</span><br><span class="line">           return new string []&#123;&quot;hvalue1&quot;,&quot;hvalue2&quot; &#125;;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;param name=&quot;id&quot;&gt;&lt;/param&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;&#123;id&#125;&quot;)]</span><br><span class="line">       public string Get(int id)</span><br><span class="line">       &#123;</span><br><span class="line"></span><br><span class="line">           return id + &quot;h&quot;;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
 <p>说明 : 在一个控制器中有多个http请求相同的方法时,须指定其路由别名,否则会出现默认调用第一个的情况(踩过坑的)<br> router 给方法指定路由别名 .如果带参数的需要指定参数的名称,用{}包装 如router(“{id}”) </p>
 </blockquote>
@@ -424,7 +431,7 @@
         <p><span>本文标题:</span><a href="/2018/04/19/webapi1/">.net core webapi使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
         <p><span>发布时间:</span>2018-04-19, 13:51:10</p>
-        <p><span>最后更新:</span>2018-04-19, 14:42:49</p>
+        <p><span>最后更新:</span>2018-04-19, 14:47:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/04/19/webapi1/" title=".net core webapi使用">http://ambiton.xin/2018/04/19/webapi1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2018/04/19/webapi1/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
