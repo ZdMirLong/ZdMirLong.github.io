@@ -277,6 +277,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-rabbitmq3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/19/rabbitmq3/" class="article-date">
+      <time datetime="2018-04-19T05:16:25.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><excerpt in="" index="" |首页摘要=""><br>使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化</excerpt></p>
+<h3 id="生产者步骤"><a href="#生产者步骤" class="headerlink" title="生产者步骤"></a>生产者步骤</h3><ul>
+<li>创建ConnectionFactory连接工厂  </li>
+<li>创建连接connection</li>
+<li>创建信道</li>
+<li>申明队列</li>
+<li>申明交换器 ExchangeDeclare</li>
+<li>将队列与交换器绑定 QueueBind</li>
+<li>创建属性 设置消息持久化 Persistent</li>
+<li>发送消息到队列并指定消息持久化类型 basicProperties
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/04/19/rabbitmq3/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-rabbitmq4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -335,79 +408,6 @@
       
         <p class="article-more-link">
           <a href="/2018/04/19/rabbitmq4/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rabbitmq3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/19/rabbitmq3/" class="article-date">
-      <time datetime="2018-04-19T05:16:25.000Z" itemprop="datePublished">2018-04-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |首页摘要=""><br>使用一个生产者,多个消费时需要将队列与路由交换器绑定 并设置消息持久化</excerpt></p>
-<h3 id="生产者步骤"><a href="#生产者步骤" class="headerlink" title="生产者步骤"></a>生产者步骤</h3><ul>
-<li>创建ConnectionFactory连接工厂  </li>
-<li>创建连接connection</li>
-<li>创建信道</li>
-<li>申明队列</li>
-<li>申明交换器 ExchangeDeclare</li>
-<li>将队列与交换器绑定 QueueBind</li>
-<li>创建属性 设置消息持久化 Persistent</li>
-<li>发送消息到队列并指定消息持久化类型 basicProperties
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/04/19/rabbitmq3/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -578,7 +578,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/identityserver/">identityserver</a>
+      <a class="article-title" href="/2018/04/18/identityserver/">identity server4 客服端模式认证</a>
     </h1>
   
 
@@ -588,7 +588,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1>
+              <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p>
+<ol>
+<li>使用vscode创建项目<blockquote>
+<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
+</blockquote>
+</li>
+<li>添加identityserver4引用<blockquote>
+<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
+</blockquote>
+<ol start="3">
+<li>添加identityserver中间件并使用<blockquote>
+<p>首先starup中ConfigureServices方法启用中间件</p>
+          
       
     </div>
     
@@ -605,6 +622,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/04/18/identityserver/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
