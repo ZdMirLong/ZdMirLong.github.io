@@ -24,20 +24,20 @@
 <meta property="og:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdn.net/20170209145852454?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2hvYW1peWFuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-04-18T14:54:26.550Z">
+<meta property="og:updated_time" content="2018-04-19T02:50:43.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rabbitmq基本概念">
 <meta name="twitter:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
 <meta name="twitter:image" content="https://img-blog.csdn.net/20170209145852454?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2hvYW1peWFuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+<link rel="apple-touch-icon" href= "ambiton.xin/apple-touch-icon.png">
 
 
     <link rel="alternate" href="/atom.xml" title="Ethan个人博客" type="application/atom+xml">
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="ambiton.xin/favicon.png">
 
 
 
@@ -87,7 +87,7 @@
 
 
 
-    <script> yiliaConfig.rootUrl = "\/";</script>
+    <script> yiliaConfig.rootUrl = ambiton.xin; </script>
 
 
 
@@ -102,7 +102,7 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+            <img src="ambiton.xinhttp://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/">Ethan</a></h1>
@@ -170,13 +170,13 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/">主页</a></li>
+                            <li><a href="ambiton.xin/">主页</a></li>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a href="ambiton.xin/archives/">所有文章</a></li>
                         
-                            <li><a href="/tags/">标签云</a></li>
+                            <li><a href="ambiton.xin/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a href="ambiton.xin/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
@@ -236,7 +236,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+                <img src="ambiton.xinhttp://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">Ethan</a></h1>
@@ -438,19 +438,22 @@
 
 
     
-        <section class="youyan" id="comments">
-    <script>
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2161435';
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
+         <section class="changyan" id="comments">    
+   <!--PC和WAP自适应版-->
+<div id="SOHUCS"  sid="rabbitmq基本概念"></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cytzwJlWe'; 
+var conf = 'prod_4087e8c0f77c2b414f9575e00ccbcc09'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+ </script>
     
     <script> loadComment(); </script>
 
-    <div id="uyan_frame"></div>
 </section>
+    
     
 
 
@@ -525,7 +528,7 @@
             }
             else {
                 var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                var backgroundimg = "url(ambiton.xin/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
         })
