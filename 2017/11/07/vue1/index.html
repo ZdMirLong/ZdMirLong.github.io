@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
-<meta name="keywords" content="rabbitmq">
+<meta name="description" content="Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：">
+<meta name="keywords" content="vue.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
-<meta property="og:url" content="http://ambiton.xin/2018/04/19/rabbitmq2/index.html">
+<meta property="og:title" content="vuejs学习1">
+<meta property="og:url" content="http://ambiton.xin/2017/11/07/vue1/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
+<meta property="og:description" content="Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T05:16:02.858Z">
+<meta property="og:image" content="http://7xjyw1.com1.z0.glb.clouddn.com/20170227091542.png">
+<meta property="og:updated_time" content="2018-04-20T01:45:44.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
-<meta name="twitter:description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
+<meta name="twitter:title" content="vuejs学习1">
+<meta name="twitter:description" content="Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：">
+<meta name="twitter:image" content="http://7xjyw1.com1.z0.glb.clouddn.com/20170227091542.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者 | Ethan个人博客</title>
+<title>vuejs学习1 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-rabbitmq2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vue1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/19/rabbitmq2/" class="article-date">
-      <time datetime="2018-04-19T05:05:07.000Z" itemprop="datePublished">2018-04-19</time>
+      <a href="/2017/11/07/vue1/" class="article-date">
+      <time datetime="2017-11-07T01:27:46.000Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -290,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者
+      vuejs学习1
     </h1>
   
 
@@ -301,7 +303,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue.js</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,58 +313,68 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
-<blockquote>
-<p>要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.</p>
-</blockquote>
+        <p><excerpt in="" index="" |摘要=""><br> Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：<br> <a id="more"></a></excerpt></p>
+<the rest="" of="" contents|="" 余下全文="">
+
+<h3 id="vue简单实用"><a href="#vue简单实用" class="headerlink" title="vue简单实用"></a>vue简单实用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;title&gt;Helloworld&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Hello World&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &#123;&#123;message&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var app=new Vue(&#123;</span><br><span class="line">            el:&apos;#app&apos;,</span><br><span class="line">            data:&#123;</span><br><span class="line">                message:&apos;hello Vue!&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-if-v-else-v-show-指令"><a href="#v-if-v-else-v-show-指令" class="headerlink" title="v-if  v-else  v-show 指令"></a>v-if  v-else  v-show 指令</h3><p>v-if:是vue 的一个内部指令，指令用在我们的html中。<br><br>v-if用来判断是否加载html的DOM，比如我们模拟一个用户登录状态，在用户登录后显示用户名称。</p><br>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;title&gt;v-if &amp; v-show &amp; v-else&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;v-if 判断是否加载&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;div v-if=&quot;isLogin&quot;&gt;hello word&lt;/div&gt;</span><br><span class="line">        &lt;div v-else&gt;请登录后操作&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var app=new Vue(&#123;</span><br><span class="line">            el:&apos;#app&apos;,</span><br><span class="line">            data:&#123;</span><br><span class="line">               isLogin:false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br><br>&gt; 这里我们在vue的data里定义了isLogin的值，当它为true时，网页就会显示hello word,否则不显示<br><br><p>v-show: 调整css中display属性，DOM已经加载，只是CSS控制没有显示出来。</p>
+
 <ul>
-<li>新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 <code>Rabbitmq.Client</code><a id="more"></a>
-</li>
-</ul>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-
-<h3 id="创建生产者步骤"><a href="#创建生产者步骤" class="headerlink" title="创建生产者步骤"></a>创建生产者步骤</h3><ul>
-<li>创建ConnectionFactory连接工厂</li>
-<li>通过工厂获取连接connection</li>
-<li>创建信道</li>
-<li>申明队列</li>
-<li><p>发送消息到队列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1 创建连接工厂,指定地址 用户名和密码</span><br><span class="line">  var factory = new ConnectionFactory();</span><br><span class="line">  factory.UserName = &quot;UserName&quot;;</span><br><span class="line">  factory.Password = &quot;Password&quot;;</span><br><span class="line">  factory.HostName = &quot;address&quot;;</span><br><span class="line">  using (var connection = factory.CreateConnection())//创建连接</span><br><span class="line">    &#123;</span><br><span class="line">        using (var channel = connection.CreateModel())//创建信道</span><br><span class="line">           &#123;</span><br><span class="line">                   //创建队列  队列名 是否持久化 是否唯一 是否自动删除  参数列表</span><br><span class="line">                   channel.QueueDeclare(&quot;hello&quot;, false, false, false, null);</span><br><span class="line">                   for (int i = 0; i &lt; 100; i++)</span><br><span class="line">                   &#123;</span><br><span class="line">                       string msg = this.textBox1.Text.Trim()+&quot;&quot;+i;</span><br><span class="line">                       //rabbitmq发送二进制数据</span><br><span class="line">                       var body = Encoding.UTF8.GetBytes(msg);</span><br><span class="line">                       //发送消息 exchange 交换器  routingKey  路由 </span><br><span class="line">                       channel.BasicPublish(exchange: &quot;&quot;, routingKey: &quot;hello&quot;, basicProperties: null, body: body);</span><br><span class="line">                       this.textBox2.Text += msg + &quot;发送成功!\r\n&quot;;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="消费者步骤"><a href="#消费者步骤" class="headerlink" title="消费者步骤"></a>消费者步骤</h3><ul>
-<li>创建ConnectionFactory连接工厂  </li>
-<li>创建连接connection</li>
-<li>创建信道</li>
-<li>申明队列 此处的队列名必须与生产者的队列名相同</li>
-<li>创建事件驱动的消费者类型，绑定消费 EventingBasicConsumer</li>
-<li>阻塞获取消息</li>
-<li>指定消费队列 BasicConsume</li>
+<li>v-if 和v-show的区别：<ul>
+<li>v-if： 判断是否加载，可以减轻服务器的压力，在需要时加载。</li>
+<li>v-show：调整css dispaly属性，可以使客户端操作更加流畅。</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//创建连接工厂</span><br><span class="line">           var factory = new ConnectionFactory();</span><br><span class="line">           factory.UserName = &quot;admin&quot;;</span><br><span class="line">           factory.Password = &quot;admin&quot;;</span><br><span class="line">           factory.HostName = &quot;116.196.76.89&quot;;</span><br><span class="line"></span><br><span class="line">           //创建连接</span><br><span class="line">           using (var connection = factory.CreateConnection())</span><br><span class="line">           &#123;//创建信道</span><br><span class="line">               using (var channel = connection.CreateModel())</span><br><span class="line">               &#123;</span><br><span class="line">                   //申明队列</span><br><span class="line">                   channel.QueueDeclare(&quot;hello&quot;, false, false, false, null);</span><br><span class="line">                   //创建事件驱动的消费者类型，绑定消费</span><br><span class="line">                   var consumer = new EventingBasicConsumer(channel);</span><br><span class="line">                   //阻塞获取消息</span><br><span class="line">                   consumer.Received += (model, ea) =&gt;</span><br><span class="line">                   &#123;</span><br><span class="line">                       var body = ea.Body;</span><br><span class="line">                       var message = Encoding.UTF8.GetString(body);</span><br><span class="line">                       Console.WriteLine(&quot; 我是消费者我接收到消息： &#123;0&#125;&quot;, message);</span><br><span class="line">                   &#125;;</span><br><span class="line"></span><br><span class="line">                   //指定消费队列</span><br><span class="line">                   channel.BasicConsume(queue: &quot;hello&quot;,</span><br><span class="line">                                        autoAck: true,</span><br><span class="line">                                        consumer: consumer);</span><br><span class="line"></span><br><span class="line">                   Console.WriteLine(&quot; Press [enter] to exit.&quot;);</span><br><span class="line">              </span><br><span class="line">                   Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure></the>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><p><br>v-for指令是循环渲染一组data中的数组，v-for 指令需要以 item in items 形式的特殊语法，items 是源数据数组并且item是数组元素迭代的别名。<br></p>
+
+<ul>
+<li><p>html写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;li v-for=&quot;item in items&quot;&gt;</span><br><span class="line">        &#123;&#123;item&#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>js写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var app=new Vue(&#123;</span><br><span class="line">     el:&apos;#app&apos;,</span><br><span class="line">     data:&#123;</span><br><span class="line">         items:[20,23,18,65,32,19,54,56,41]</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这是一个最基础的循环，先在js里定义了items数组，然后在模板中用v-for循环出来，需要注意的是，你需要那个html标签循环，v-for就写在那个上边。</p>
+</blockquote>
+<h3 id="v-on：绑定事件监听器-简写"><a href="#v-on：绑定事件监听器-简写" class="headerlink" title="v-on：绑定事件监听器 简写 @:"></a>v-on：绑定事件监听器 简写 @:</h3><p><img src="http://7xjyw1.com1.z0.glb.clouddn.com/20170227091542.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;title&gt;v-on事件监听器&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;v-on 事件监听器&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">       本场比赛得分： &#123;&#123;count&#125;&#125;&lt;br/&gt;</span><br><span class="line">       &lt;button v-on:click=&quot;jiafen&quot;&gt;加分&lt;/button&gt;</span><br><span class="line">       &lt;button v-on:click=&quot;jianfen&quot;&gt;减分&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var app=new Vue(&#123;</span><br><span class="line">            el:&apos;#app&apos;,</span><br><span class="line">            data:&#123;</span><br><span class="line">                count:1</span><br><span class="line">            &#125;,</span><br><span class="line">            methods:&#123;</span><br><span class="line">                jiafen:function()&#123;//定义执行的事件</span><br><span class="line">                    this.count++;</span><br><span class="line">                &#125;,</span><br><span class="line">                jianfen:function()&#123;</span><br><span class="line">                    this.count--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="v-bind-指令-绑定css或者attr属性等-简写-src-href"><a href="#v-bind-指令-绑定css或者attr属性等-简写-src-href" class="headerlink" title="v-bind 指令 绑定css或者attr属性等 简写 :src :href"></a>v-bind 指令 绑定css或者attr属性等 简写 :src :href</h3><p>绑定img的src属性 </p>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;img v-bind:src=&quot;imgSrc&quot;  width=&quot;200px&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">var app=new Vue(&#123;</span><br><span class="line">    el:&apos;#app&apos;,</span><br><span class="line">    data:&#123;</span><br><span class="line">          imgSrc:&apos;http://baidu.com/wp-content/uploads/2017/02/vue01-2.jpg&apos;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</the>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/07/vue1/">vuejs学习1</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
+        <p><span>发布时间:</span>2017-11-07, 09:27:46</p>
+        <p><span>最后更新:</span>2018-04-20, 09:45:44</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/07/vue1/" title="vuejs学习1">http://ambiton.xin/2017/11/07/vue1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/11/07/vue1/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
 
 
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/04/19/rabbitmq4/">
-                    rabbitmq4 fanout分列模式使用
+                <a href="/2018/04/18/identityserver/">
+                    identity server4 客服端模式认证
                 </a>
             </div>
         
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/04/18/rabbitmq1/">
-                    rabbitmq基本概念
-                </a>
-            </div>
         
     </nav>
 
@@ -372,7 +384,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建生产者步骤"><span class="toc-number">1.</span> <span class="toc-text">创建生产者步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消费者步骤"><span class="toc-number">2.</span> <span class="toc-text">消费者步骤</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue简单实用"><span class="toc-number">1.</span> <span class="toc-text">vue简单实用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if-v-else-v-show-指令"><span class="toc-number">2.</span> <span class="toc-text">v-if  v-else  v-show 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for"><span class="toc-number">3.</span> <span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on：绑定事件监听器-简写"><span class="toc-number">4.</span> <span class="toc-text">v-on：绑定事件监听器 简写 @:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-指令-绑定css或者attr属性等-简写-src-href"><span class="toc-number">5.</span> <span class="toc-text">v-bind 指令 绑定css或者attr属性等 简写 :src :href</span></a></li></ol>
         
     </div>
     <style>
@@ -408,7 +420,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"vuejs学习1　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +436,7 @@
     
          <section class="changyan" id="comments">    
    <!--PC和WAP自适应版-->
-<div id="SOHUCS"  sid="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者"></div> 
+<div id="SOHUCS"  sid="vuejs学习1"></div> 
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -448,7 +460,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/04/19/rabbitmq4/" title="上一篇: rabbitmq4 fanout分列模式使用">
+            <a href="/2018/04/18/identityserver/" title="上一篇: identity server4 客服端模式认证">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,9 +468,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/18/rabbitmq1/" title="下一篇: rabbitmq基本概念">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
 
