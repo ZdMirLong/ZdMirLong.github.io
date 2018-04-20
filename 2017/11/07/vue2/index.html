@@ -15,18 +15,21 @@
 
 
 
-<meta name="description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
-<meta name="keywords" content="rabbitmq">
+<meta name="description" content="简单介绍vue2.0的生命周期和钩子函数">
+<meta name="keywords" content="vue.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
-<meta property="og:url" content="http://ambiton.xin/2018/04/19/rabbitmq2/index.html">
+<meta property="og:title" content="vuejs学习2">
+<meta property="og:url" content="http://ambiton.xin/2017/11/07/vue2/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
+<meta property="og:description" content="简单介绍vue2.0的生命周期和钩子函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T05:16:02.858Z">
+<meta property="og:image" content="https://segmentfault.com/img/bVEo3w?w=1200&h=2800">
+<meta property="og:image" content="https://segmentfault.com/img/bVEs9x?w=847&h=572">
+<meta property="og:updated_time" content="2018-04-20T02:05:03.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
-<meta name="twitter:description" content="要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.   新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 Rabbitmq.Client">
+<meta name="twitter:title" content="vuejs学习2">
+<meta name="twitter:description" content="简单介绍vue2.0的生命周期和钩子函数">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVEo3w?w=1200&h=2800">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者 | Ethan个人博客</title>
+<title>vuejs学习2 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-rabbitmq2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vue2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/19/rabbitmq2/" class="article-date">
-      <time datetime="2018-04-19T05:05:07.000Z" itemprop="datePublished">2018-04-19</time>
+      <a href="/2017/11/07/vue2/" class="article-date">
+      <time datetime="2017-11-07T03:27:46.000Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -290,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者
+      vuejs学习2
     </h1>
   
 
@@ -301,7 +304,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue.js</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,56 +314,54 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+        <p><excerpt in="" index="" |摘要=""><br> 简单介绍vue2.0的生命周期和钩子函数<br> <a id="more"></a></excerpt></p>
+<the rest="" of="" contents|="" 余下全文="">
+
+<h4 id="简单介绍vue2-0的生命周期和钩子函数"><a href="#简单介绍vue2-0的生命周期和钩子函数" class="headerlink" title="简单介绍vue2.0的生命周期和钩子函数"></a>简单介绍vue2.0的生命周期和钩子函数</h4><p>先来两张图理解下</p>
+
+<p><img src="https://segmentfault.com/img/bVEo3w?w=1200&amp;h=2800" alt=""><br><img src="https://segmentfault.com/img/bVEs9x?w=847&amp;h=572" alt=""></p>
+<p>编写下面代码执行</p>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/vue/2.1.3/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">     &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    </span><br><span class="line">  var app = new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">          message : &quot;xuxiao is boy&quot; </span><br><span class="line">      &#125;,</span><br><span class="line">       beforeCreate: function () &#123;</span><br><span class="line">                console.group(&apos;beforeCreate 创建前状态===============》&apos;);</span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot; , &quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //undefined </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)  </span><br><span class="line">        &#125;,</span><br><span class="line">        created: function () &#123;</span><br><span class="line">            console.group(&apos;created 创建完毕状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化 </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化</span><br><span class="line">        &#125;,</span><br><span class="line">        beforeMount: function () &#123;</span><br><span class="line">            console.group(&apos;beforeMount 挂载前状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + (this.$el)); //已被初始化</span><br><span class="line">            console.log(this.$el);</span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化  </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化  </span><br><span class="line">        &#125;,</span><br><span class="line">        mounted: function () &#123;</span><br><span class="line">            console.group(&apos;mounted 挂载结束状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //已被初始化</span><br><span class="line">            console.log(this.$el);    </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化</span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化 </span><br><span class="line">        &#125;,</span><br><span class="line">        beforeUpdate: function () &#123;</span><br><span class="line">            console.group(&apos;beforeUpdate 更新前状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">            console.log(this.$el);   </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">        &#125;,</span><br><span class="line">        updated: function () &#123;</span><br><span class="line">            console.group(&apos;updated 更新完成状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">            console.log(this.$el); </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">        &#125;,</span><br><span class="line">        beforeDestroy: function () &#123;</span><br><span class="line">            console.group(&apos;beforeDestroy 销毁前状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">            console.log(this.$el);    </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">        &#125;,</span><br><span class="line">        destroyed: function () &#123;</span><br><span class="line">            console.group(&apos;destroyed 销毁完成状态===============》&apos;);</span><br><span class="line">            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">            console.log(this.$el);  </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.</p>
+<p> 本人在开发中主要用到一下几个 :<code>beforeCreate</code>生命周期是组件刚刚被创建,但是属性还没有计算,这时候我们去访问vue实例的属性是不存在的,提示undefind.<br><code>created</code>是组件和属性均已完成,但是还未加载到dom上.<br><code>mounted</code>模板已经编译并且以挂载.<br>比如,我们现在有个场景,在数据加载的时候显示加载动画,加载成功后关闭加载动画,显示加载的数据.这里就需要用到<code>created</code>和 <code>mounted</code>来节后,当组件为 <code>created</code>时显示动画,组件为 <code>mounted</code>已经挂载到dom时关闭动画,并显示数据.当然,你也可以在 <code>beforecreate</code>中去执行动画,看具体的需求.<br><code>update</code>表示在为vue实例属性更新值时执行<br><code>beforeDestroy</code>： 你确认删除XX吗？ destroyed ：当前组件已被删除，清空相关内容</p>
 </blockquote>
-<ul>
-<li>新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 <code>Rabbitmq.Client</code><a id="more"></a>
-</li>
-</ul>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-
-<h3 id="创建生产者步骤"><a href="#创建生产者步骤" class="headerlink" title="创建生产者步骤"></a>创建生产者步骤</h3><ul>
-<li>创建ConnectionFactory连接工厂</li>
-<li>通过工厂获取连接connection</li>
-<li>创建信道</li>
-<li>申明队列</li>
-<li><p>发送消息到队列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1 创建连接工厂,指定地址 用户名和密码</span><br><span class="line">  var factory = new ConnectionFactory();</span><br><span class="line">  factory.UserName = &quot;UserName&quot;;</span><br><span class="line">  factory.Password = &quot;Password&quot;;</span><br><span class="line">  factory.HostName = &quot;address&quot;;</span><br><span class="line">  using (var connection = factory.CreateConnection())//创建连接</span><br><span class="line">    &#123;</span><br><span class="line">        using (var channel = connection.CreateModel())//创建信道</span><br><span class="line">           &#123;</span><br><span class="line">                   //创建队列  队列名 是否持久化 是否唯一 是否自动删除  参数列表</span><br><span class="line">                   channel.QueueDeclare(&quot;hello&quot;, false, false, false, null);</span><br><span class="line">                   for (int i = 0; i &lt; 100; i++)</span><br><span class="line">                   &#123;</span><br><span class="line">                       string msg = this.textBox1.Text.Trim()+&quot;&quot;+i;</span><br><span class="line">                       //rabbitmq发送二进制数据</span><br><span class="line">                       var body = Encoding.UTF8.GetBytes(msg);</span><br><span class="line">                       //发送消息 exchange 交换器  routingKey  路由 </span><br><span class="line">                       channel.BasicPublish(exchange: &quot;&quot;, routingKey: &quot;hello&quot;, basicProperties: null, body: body);</span><br><span class="line">                       this.textBox2.Text += msg + &quot;发送成功!\r\n&quot;;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="消费者步骤"><a href="#消费者步骤" class="headerlink" title="消费者步骤"></a>消费者步骤</h3><ul>
-<li>创建ConnectionFactory连接工厂  </li>
-<li>创建连接connection</li>
-<li>创建信道</li>
-<li>申明队列 此处的队列名必须与生产者的队列名相同</li>
-<li>创建事件驱动的消费者类型，绑定消费 EventingBasicConsumer</li>
-<li>阻塞获取消息</li>
-<li>指定消费队列 BasicConsume</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//创建连接工厂</span><br><span class="line">           var factory = new ConnectionFactory();</span><br><span class="line">           factory.UserName = &quot;admin&quot;;</span><br><span class="line">           factory.Password = &quot;admin&quot;;</span><br><span class="line">           factory.HostName = &quot;116.196.76.89&quot;;</span><br><span class="line"></span><br><span class="line">           //创建连接</span><br><span class="line">           using (var connection = factory.CreateConnection())</span><br><span class="line">           &#123;//创建信道</span><br><span class="line">               using (var channel = connection.CreateModel())</span><br><span class="line">               &#123;</span><br><span class="line">                   //申明队列</span><br><span class="line">                   channel.QueueDeclare(&quot;hello&quot;, false, false, false, null);</span><br><span class="line">                   //创建事件驱动的消费者类型，绑定消费</span><br><span class="line">                   var consumer = new EventingBasicConsumer(channel);</span><br><span class="line">                   //阻塞获取消息</span><br><span class="line">                   consumer.Received += (model, ea) =&gt;</span><br><span class="line">                   &#123;</span><br><span class="line">                       var body = ea.Body;</span><br><span class="line">                       var message = Encoding.UTF8.GetString(body);</span><br><span class="line">                       Console.WriteLine(&quot; 我是消费者我接收到消息： &#123;0&#125;&quot;, message);</span><br><span class="line">                   &#125;;</span><br><span class="line"></span><br><span class="line">                   //指定消费队列</span><br><span class="line">                   channel.BasicConsume(queue: &quot;hello&quot;,</span><br><span class="line">                                        autoAck: true,</span><br><span class="line">                                        consumer: consumer);</span><br><span class="line"></span><br><span class="line">                   Console.WriteLine(&quot; Press [enter] to exit.&quot;);</span><br><span class="line">              </span><br><span class="line">                   Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure></the>
+</the>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/07/vue2/">vuejs学习2</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
+        <p><span>发布时间:</span>2017-11-07, 11:27:46</p>
+        <p><span>最后更新:</span>2018-04-20, 10:05:03</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/07/vue2/" title="vuejs学习2">http://ambiton.xin/2017/11/07/vue2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/11/07/vue2/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
 
 
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/04/19/rabbitmq4/">
-                    rabbitmq4 fanout分列模式使用
+                <a href="/2018/04/18/identityserver/">
+                    identity server4 客服端模式认证
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/04/18/rabbitmq1/">
-                    rabbitmq基本概念
+                <a href="/2017/11/07/vue1/">
+                    vuejs学习1
                 </a>
             </div>
         
@@ -372,7 +373,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建生产者步骤"><span class="toc-number">1.</span> <span class="toc-text">创建生产者步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消费者步骤"><span class="toc-number">2.</span> <span class="toc-text">消费者步骤</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单介绍vue2-0的生命周期和钩子函数"><span class="toc-number">1.</span> <span class="toc-text">简单介绍vue2.0的生命周期和钩子函数</span></a></li></ol>
         
     </div>
     <style>
@@ -408,7 +409,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"vuejs学习2　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +425,7 @@
     
          <section class="changyan" id="comments">    
    <!--PC和WAP自适应版-->
-<div id="SOHUCS"  sid="rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者"></div> 
+<div id="SOHUCS"  sid="vuejs学习2"></div> 
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -448,7 +449,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/04/19/rabbitmq4/" title="上一篇: rabbitmq4 fanout分列模式使用">
+            <a href="/2018/04/18/identityserver/" title="上一篇: identity server4 客服端模式认证">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +457,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/18/rabbitmq1/" title="下一篇: rabbitmq基本概念">
+            <a href="/2017/11/07/vue1/" title="下一篇: vuejs学习1">
                 <i class="fa fa-angle-right"></i>
             </a>
         
