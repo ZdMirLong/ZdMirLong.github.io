@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Ethan" />
+
+
+
+<meta name="description" content="mongodb简单使用">
+<meta name="keywords" content="MongoDb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb简单使用">
+<meta property="og:url" content="http://ambiton.xin/2017/12/21/mongo1/index.html">
+<meta property="og:site_name" content="Ethan个人博客">
+<meta property="og:description" content="mongodb简单使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-21T03:42:42.516Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb简单使用">
+<meta name="twitter:description" content="mongodb简单使用">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Ethan个人博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>mongodb简单使用 | Ethan个人博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay" style="background:#4d4d4d !important"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Ethan</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Ethan</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/Ethan_lzd@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-first/">code first</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ef/">ef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapi/">webapi</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">乍然萧索,晚来晴初</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Ethan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Ethan</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Ethan</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/Ethan_lzd@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-mongo1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/21/mongo1/" class="article-date">
+      <time datetime="2017-12-21T06:05:10.000Z" itemprop="datePublished">2017-12-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongodb简单使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MongoDb/">MongoDb</a><a class="article-category-link" href="/categories/MongoDb/MongoDb/">MongoDb</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDb/">MongoDb</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excrept in="" index="" |="" 摘要=""><br>mongodb简单使用<br><a id="more"></a></excrept></p>
+<the rest="" of="" contents="" |余下全文="">
+
+
+<p><a href="https://www.cnblogs.com/lecaf/archive/2013/08/23/mongodb.html" target="_blank" rel="noopener">安装和配置mongodb</a></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>show dbs 显示当前所有的数据库</li>
+<li>use xxx  表示选择某个数据库进行操作 如果数据库不存在则为创建数据库 <br><font color="red">注意:创建的数据库(newdb)不在列表中。要显示数据库，需要至少插入一个文档，空的数据库是不显示出来的。</font>
+
+
+</li>
+</ul>
+<h3 id="插入一条数据"><a href="#插入一条数据" class="headerlink" title="插入一条数据"></a>插入一条数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.items.insert(&#123;&quot;name&quot;:&quot;yiibai tutorials&quot;&#125;) </span><br><span class="line">db表示你use时选择的数据库 items表示在此数据库中穿件一个items集合</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><font color="red"> 使用 db.dropDatabase()删除数据库  如果不指定use的数据库,将删除所有数据库</font> 
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**先选择操作的数据库</span><br><span class="line"></span><br><span class="line">use python</span><br><span class="line"></span><br><span class="line">**在执行删除操作</span><br><span class="line"></span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+<h3 id="批量添加数据"><a href="#批量添加数据" class="headerlink" title="批量添加数据"></a>批量添加数据</h3><p>只需要传入一个文档数组集合即可</p>
+<h6 id="insert方法"><a href="#insert方法" class="headerlink" title="insert方法"></a>insert方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">db.sina.insert([</span><br><span class="line">&#123;</span><br><span class="line">    &quot;title&quot;:&quot;第二条新闻&quot;,</span><br><span class="line">    &quot;Authori&quot;:&quot;Ethan&quot;,</span><br><span class="line">    &quot;content&quot;:&quot;内容&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">&#123;</span><br><span class="line">    &quot;title&quot;:&quot;第三条新闻&quot;,</span><br><span class="line">    &quot;Authori&quot;:&quot;Ethan&quot;,</span><br><span class="line">    &quot;content&quot;:&quot;内容&quot;</span><br><span class="line"> &#125;,</span><br><span class="line"> &#123;</span><br><span class="line">    &quot;title&quot;:&quot;第四条新闻&quot;,</span><br><span class="line">    &quot;Authori&quot;:&quot;Ethan&quot;,</span><br><span class="line">    &quot;content&quot;:&quot;内容&quot;</span><br><span class="line"> &#125;]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h6 id="insertMany-方法将多个文档插入到集合中-数组形式-该方法返回执行成功的-id的值"><a href="#insertMany-方法将多个文档插入到集合中-数组形式-该方法返回执行成功的-id的值" class="headerlink" title="insertMany()方法将多个文档插入到集合中,数组形式,该方法返回执行成功的_id的值"></a>insertMany()方法将多个文档插入到集合中,数组形式,该方法返回执行成功的_id的值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">db.sina.insertMany([</span><br><span class="line">   &#123; item: &quot;journal&quot;, qty: 25, tags: [&quot;blank&quot;, &quot;red&quot;], size: &#123; h: 14, w: 21, uom: &quot;cm&quot; &#125; &#125;,</span><br><span class="line">   &#123; item: &quot;mat&quot;, qty: 85, tags: [&quot;gray&quot;], size: &#123; h: 27.9, w: 35.5, uom: &quot;cm&quot; &#125; &#125;,</span><br><span class="line">   &#123; item: &quot;mousepad&quot;, qty: 25, tags: [&quot;gel&quot;, &quot;blue&quot;], size: &#123; h: 19, w: 22.85, uom: &quot;cm&quot; &#125; &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">//返回结果</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedIds&quot; : [</span><br><span class="line">                ObjectId(&quot;59552c1c46be576f199feb56&quot;),</span><br><span class="line">                ObjectId(&quot;59552c1c46be576f199feb57&quot;),</span><br><span class="line">                ObjectId(&quot;59552c1c46be576f199feb58&quot;)</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="插入单个文档-db-collection-insertOne-和insertMany一样-返回成功的id值"><a href="#插入单个文档-db-collection-insertOne-和insertMany一样-返回成功的id值" class="headerlink" title="插入单个文档  db.collection.insertOne() 和insertMany一样 返回成功的id值"></a>插入单个文档  db.collection.insertOne() 和insertMany一样 返回成功的id值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> db.inventory.insertOne(</span><br><span class="line">   &#123; item: &quot;canvas&quot;, qty: 100, tags: [&quot;cotton&quot;], size: &#123; h: 28, w: 35.5,uom: &quot;cm&quot; &#125; &#125;</span><br><span class="line"> )</span><br><span class="line"> </span><br><span class="line"> //返回结果</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedId&quot; : [</span><br><span class="line">                ObjectId(&quot;59552c1c46be576f199feb56&quot;)</span><br><span class="line">               </span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><ul>
+<li>find(document) 方法  document表示查询条件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">db.sina.find(&#123;&quot;name&quot;:&quot;新闻&quot;,&quot;title&quot;:&quot;第一条新闻&quot;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="查询条件"><a href="#查询条件" class="headerlink" title="查询条件"></a>查询条件</h6><ul>
+<li>相等    {<key>:<value>}    db.mycol.find({“by”:”yiibai”}).pretty()    where by = ‘yiibai’</value></key></li>
+<li>小于    {<key>:{$lt:<value>}}    db.mycol.find({“likes”:{$lt:50}}).pretty()    where likes &lt; 50</value></key></li>
+<li>小于等于    {<key>:{$lte:<value>}}    db.mycol.find({“likes”:{$lte:50}}).pretty()    where likes &lt;= 50</value></key></li>
+<li>大于    {<key>:{$gt:<value>}}    db.mycol.find({“likes”:{$gt:50}}).pretty()    where likes &gt; 50</value></key></li>
+<li>大于等于    {<key>:{$gte:<value>}}    db.mycol.find({“likes”:{$gte:50}}).pretty()    where likes &gt;= 50</value></key></li>
+<li>不等于    {<key>:{$ne:<value>}}    db.mycol.find({“likes”:{$ne:50}}).pretty()    where likes != 50</value></key></li>
+</ul>
+<h6 id="AND-查询"><a href="#AND-查询" class="headerlink" title="AND 查询"></a>AND 查询</h6><p>结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.xxxx.find(</span><br><span class="line">   &#123;</span><br><span class="line">      $and: [</span><br><span class="line">         &#123;key1: value1&#125;, &#123;key2:value2&#125;</span><br><span class="line">      ]</span><br><span class="line">   &#125;</span><br><span class="line">).pretty()</span><br></pre></td></tr></table></figure></p>
+<p>实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">db.sina.find(</span><br><span class="line"> &#123;$and:[</span><br><span class="line">     &#123;&quot;title&quot;:&quot;新闻一&quot;&#125;,</span><br><span class="line">     &#123;&quot;content&quot;:&quot;这是新闻的内容  是不是很吊&quot;&#125;</span><br><span class="line">     ]&#125;</span><br><span class="line"> </span><br><span class="line"> ).pretty()</span><br></pre></td></tr></table></figure></p>
+<h6 id="or查询-和and查询一样-只是and改为or即可"><a href="#or查询-和and查询一样-只是and改为or即可" class="headerlink" title="or查询  和and查询一样 只是and改为or即可"></a>or查询  和and查询一样 只是and改为or即可</h6><h5 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h5><p>数据准备<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.insertMany( [</span><br><span class="line">   &#123; item: &quot;journal&quot;, qty: 25, size: &#123; h: 14, w: 21, uom: &quot;cm&quot; &#125;, status: &quot;A&quot; &#125;,</span><br><span class="line">   &#123; item: &quot;notebook&quot;, qty: 50, size: &#123; h: 8.5, w: 11, uom: &quot;in&quot; &#125;, status: &quot;A&quot; &#125;,</span><br><span class="line">   &#123; item: &quot;paper&quot;, qty: 100, size: &#123; h: 8.5, w: 11, uom: &quot;in&quot; &#125;, status: &quot;D&quot; &#125;,</span><br><span class="line">   &#123; item: &quot;planner&quot;, qty: 75, size: &#123; h: 22.85, w: 30, uom: &quot;cm&quot; &#125;, status: &quot;D&quot; &#125;,</span><br><span class="line">   &#123; item: &quot;postcard&quot;, qty: 45, size: &#123; h: 10, w: 15.25, uom: &quot;cm&quot; &#125;, status: &quot;A&quot; &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>询选择字段size等于{ h: 14, w: 21, uom: “cm” }的所有文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.find(&#123; size: &#123; h: 14, w: 21, uom: &quot;cm&quot; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在size字段中嵌套的字段uom等于“in”的所有文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.find( &#123; &quot;size.uom&quot;: &quot;in&quot; &#125; )</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="指定AND条件-查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”："><a href="#指定AND条件-查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”：" class="headerlink" title="指定AND条件 查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”："></a>指定AND条件 查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.find( &#123; &quot;size.h&quot;: &#123; $lt: 15 &#125;, &quot;size.uom&quot;: &quot;in&quot;, status: &quot;D&quot; &#125; )</span><br></pre></td></tr></table></figure>
+<h5 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">删除id为100的数据</span><br><span class="line">db.mycol.remove(&#123;&apos;_id&apos;:100&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="导出导入数据库"><a href="#导出导入数据库" class="headerlink" title="导出导入数据库"></a>导出导入数据库</h4><blockquote>
+<pre><code>1、导出工具：mongoexport
+1、概念：
+    mongoDB中的mongoexport工具可以把一个collection导出成JSON格式或CSV格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。
+2、语法：
+    mongoexport -d dbname -c collectionname -o file --type json/csv -f field
+    参数说明：
+        -d ：数据库名
+        -c ：collection名
+        -o ：输出的文件名
+        --type ： 输出的格式，默认为json
+        -f ：输出的字段，如果-type为csv，则需要加上-f &quot;字段名&quot;
+3、示例：
+    sudo mongoexport -d mongotest -c users -o /home/python/Desktop/mongoDB/users.json --type json -f  &quot;_id,user_id,user_name,age,status&quot;
+</code></pre></blockquote>
+<pre><code>2、数据导入：mongoimport
+1、语法：
+    mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field
+    参数说明：
+        -d ：数据库名
+        -c ：collection名
+        --type ：导入的格式默认json
+        -f ：导入的字段名
+        --headerline ：如果导入的格式是csv，则可以使用第一行的标题作为导入的字段
+        --file ：要导入的文件
+
+ 2、示例：
+    sudo mongoimport -d mongotest -c users --file /home/mongodump/articles.json --type json
+</code></pre></the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/21/mongo1/">mongodb简单使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
+        <p><span>发布时间:</span>2017-12-21, 14:05:10</p>
+        <p><span>最后更新:</span>2018-04-21, 11:42:42</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/21/mongo1/" title="mongodb简单使用">http://ambiton.xin/2017/12/21/mongo1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/12/21/mongo1/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/12/21/mongoforcore/">
+                    .net core webapi中使用mongodb实现数据存储
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/21/webapi2/">
+                    .net core webapi使用swagger生成api帮助文档
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入一条数据"><span class="toc-number">2.</span> <span class="toc-text">插入一条数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除数据库"><span class="toc-number">3.</span> <span class="toc-text">删除数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批量添加数据"><span class="toc-number">4.</span> <span class="toc-text">批量添加数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#insert方法"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">insert方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#insertMany-方法将多个文档插入到集合中-数组形式-该方法返回执行成功的-id的值"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">insertMany()方法将多个文档插入到集合中,数组形式,该方法返回执行成功的_id的值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入单个文档-db-collection-insertOne-和insertMany一样-返回成功的id值"><span class="toc-number">4.1.</span> <span class="toc-text">插入单个文档  db.collection.insertOne() 和insertMany一样 返回成功的id值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据"><span class="toc-number">5.</span> <span class="toc-text">查询数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#查询条件"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">查询条件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#AND-查询"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">AND 查询</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#or查询-和and查询一样-只是and改为or即可"><span class="toc-number">5.0.0.3.</span> <span class="toc-text">or查询  和and查询一样 只是and改为or即可</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#嵌套查询"><span class="toc-number">5.0.1.</span> <span class="toc-text">嵌套查询</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#指定AND条件-查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”："><span class="toc-number">5.0.1.1.</span> <span class="toc-text">指定AND条件 查询选择嵌套字段h小于15的所有文档，嵌套字段uom等于“in”，status字段等于“D”：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除数据"><span class="toc-number">5.0.2.</span> <span class="toc-text">删除数据</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#导出导入数据库"><span class="toc-number">5.1.</span> <span class="toc-text">导出导入数据库</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"mongodb简单使用　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+         <section class="changyan" id="comments">    
+   <!--PC和WAP自适应版-->
+<div id="SOHUCS"  sid="mongodb简单使用"></div> 
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cytzwJlWe',
+conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
+});
+</script>
+<a href="#SOHUCS" id="changyan_count_unit"></a>评论数
+<a href="#SOHUCS" id="changyan_parti_unit"></a>参与数
+<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">
+</script>
+    
+    <script> loadComment(); </script>
+
+</section>
+    
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/21/mongoforcore/" title="上一篇: .net core webapi中使用mongodb实现数据存储">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/21/webapi2/" title="下一篇: .net core webapi使用swagger生成api帮助文档">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core3/">.net core 使用code first创建数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core2/">.net core获取配置文件信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core1/">.net core中授权认证1 使用Cookie-based认证实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongoforcore/">.net core webapi中使用mongodb实现数据存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongo1/">mongodb简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi2/">.net core webapi使用swagger生成api帮助文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi1/">.net core webapi使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/identityserver/">identity server4 客服端模式认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq4/">rabbitmq4 fanout分列模式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue3/">vuejs学习3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue2/">vuejs学习2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue1/">vuejs学习1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/excel/">使用Aspose.Cells实现的导入导出(备忘)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvc2/">mvc中ef仓储类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvs1/">mvc中实现图片验证码</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Ethan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

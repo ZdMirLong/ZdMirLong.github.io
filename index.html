@@ -198,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ef/">ef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapi/">webapi</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-first/">code first</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ef/">ef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapi/">webapi</a></li></ul>
                     </div>
                 </section>
                 
@@ -277,11 +277,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-identityserver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-core3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/identityserver/" class="article-date">
-      <time datetime="2018-04-18T14:19:42.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2017/12/25/core3/" class="article-date">
+      <time datetime="2017-12-25T06:20:10.000Z" itemprop="datePublished">2017-12-25</time>
 </a>
 
 
@@ -296,7 +296,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/identityserver/">identity server4 客服端模式认证</a>
+      <a class="article-title" href="/2017/12/25/core3/">.net core 使用code first创建数据库</a>
     </h1>
   
 
@@ -306,23 +306,117 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p>
+        <blockquote>
+<p>注: 此项目是在vs code下完成的 ,vs2017请按常规操作</p>
 <ol>
-<li>使用vscode创建项目<blockquote>
-<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
+<li>创建项目 <code>dotnet new mvc -au individual -uld --name  identitySampleUI</code>,-au表示添加认证机制,-uld表示添加本地数据库</li>
+<li>初始化数据库<code>dotnet ef database update</code><br>其中 ef操作命令如下图</li>
+</ol>
 </blockquote>
-</li>
-<li>添加identityserver4引用<blockquote>
-<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th>vscode</th>
+<th>vs2017</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dotnet ef migrations add newcloum</td>
+<td>Add-Migration</td>
+</tr>
+<tr>
+<td>dotnet ef database update</td>
+<td>Update-Database</td>
+</tr>
+<tr>
+<td>dotnet ef migrations remove</td>
+<td>Remove-Migration</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>在ApplicationUser.cs中添加一列<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public string NewColums&#123;get;set;&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<blockquote>
-<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
-</blockquote>
-<ol start="3">
-<li>添加identityserver中间件并使用<blockquote>
-<p>首先starup中ConfigureServices方法启用中间件</p>
+<p>执行 dotnet ef  migrations add newcloums ,在执行dotnet ef database update更新数据库 ,这时候可看到 数据库中Users表多了新增加的一列</p>
+<h3 id="dbcontext"><a href="#dbcontext" class="headerlink" title="dbcontext"></a>dbcontext</h3><ul>
+<li><p>创建一个类,继承DbContext</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class ApplicationDbContext:DbContext</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line">      public ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt; options ) </span><br><span class="line">          : base(options) &#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">      public DbSet&lt;Sys_User&gt; Sys_User &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      protected override void OnModelCreating(ModelBuilder modelBuilder)</span><br><span class="line">      &#123;</span><br><span class="line">          base.OnModelCreating(modelBuilder);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加一个Sys_User类,字段随便 </p>
+</li>
+<li><p>在services中添加中间件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//添加dbcontext</span><br><span class="line"> services.AddDbContext&lt;ApplicationDbContext&gt;(options=&gt;options.UseSqlServer(Configuration.GetConnectionString(&quot;SqlServerConnection&quot;)));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后执行命令 <code>Add-Migration Migrations</code></p>
+</li>
+<li>在执行命令 <code>Update-Database</code>更新数据库,在数据库中查看刚添加的Sys_User表</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core/code-first/">code first</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code-first/">code first</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-core2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/25/core2/" class="article-date">
+      <time datetime="2017-12-25T06:05:10.000Z" itemprop="datePublished">2017-12-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/25/core2/">.net core获取配置文件信息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><excrept in="" index="" |="" 摘要=""><br> .net core获取配置文件信息<br>
           
       
     </div>
@@ -331,18 +425,18 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
+    <a class="article-category-link" href="/categories/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core/net-core/">.net core</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2018/04/18/identityserver/#more">阅读全文 >></a>
+          <a href="/2017/12/25/core2/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -411,6 +505,142 @@
       
         <p class="article-more-link">
           <a href="/2017/12/25/core1/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mongoforcore" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/21/mongoforcore/" class="article-date">
+      <time datetime="2017-12-21T14:19:42.000Z" itemprop="datePublished">2017-12-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/21/mongoforcore/">.net core webapi中使用mongodb实现数据存储</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><excrept in="" index="" |="" 摘要=""><br>在.net core中使用mongodb<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MongoDb/">MongoDb</a><a class="article-category-link" href="/categories/MongoDb/MongoDb/">MongoDb</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDb/">MongoDb</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/21/mongoforcore/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mongo1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/21/mongo1/" class="article-date">
+      <time datetime="2017-12-21T06:05:10.000Z" itemprop="datePublished">2017-12-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/21/mongo1/">mongodb简单使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><excrept in="" index="" |="" 摘要=""><br>mongodb简单使用<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MongoDb/">MongoDb</a><a class="article-category-link" href="/categories/MongoDb/MongoDb/">MongoDb</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDb/">MongoDb</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/21/mongo1/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -574,6 +804,90 @@
 
 
   
+    <article id="post-identityserver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/20/identityserver/" class="article-date">
+      <time datetime="2017-12-20T14:19:42.000Z" itemprop="datePublished">2017-12-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/20/identityserver/">identity server4 客服端模式认证</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p>
+<ol>
+<li>使用vscode创建项目<blockquote>
+<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
+</blockquote>
+</li>
+<li>添加identityserver4引用<blockquote>
+<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
+</blockquote>
+<ol start="3">
+<li>添加identityserver中间件并使用<blockquote>
+<p>首先starup中ConfigureServices方法启用中间件</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/20/identityserver/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-rabbitmq4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -705,268 +1019,6 @@
       
         <p class="article-more-link">
           <a href="/2017/12/19/rabbitmq3/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rabbitmq2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/18/rabbitmq2/" class="article-date">
-      <time datetime="2017-12-18T15:26:55.000Z" itemprop="datePublished">2017-12-18</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
-<blockquote>
-<p>要使用rabbitmq,必须先安装它.安装教程网上很多这里直接略过.</p>
-</blockquote>
-<ul>
-<li>新建c#控制台项目,添加Rabbitmq.Client.dll引用  管理nuget包搜索 <code>Rabbitmq.Client</code>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/18/rabbitmq2/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rabbitmq1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/18/rabbitmq1/" class="article-date">
-      <time datetime="2017-12-18T14:26:55.000Z" itemprop="datePublished">2017-12-18</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/rabbitmq1/">rabbitmq基本概念</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |="" 首页摘要=""><br>Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/18/rabbitmq1/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/07/vue3/" class="article-date">
-      <time datetime="2017-11-07T05:00:46.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/vue3/">vuejs学习3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |摘要=""><br> 简单介绍vue2.0的过滤器等选项操作.</excerpt></p>
-<p> Vue.js 允许你自定义过滤器，可被用于一些常见的文本格式化。过滤器可以用在两个地方：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符号指示：<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue.js</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/11/07/vue3/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/07/vue2/" class="article-date">
-      <time datetime="2017-11-07T03:27:46.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/vue2/">vuejs学习2</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><excerpt in="" index="" |摘要=""><br> 简单介绍vue2.0的生命周期和钩子函数<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue.js</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/11/07/vue2/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

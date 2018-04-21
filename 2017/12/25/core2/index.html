@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Ethan" />
+
+
+
+<meta name="description" content=".net core获取配置文件信息">
+<meta name="keywords" content=".net core">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".net core获取配置文件信息">
+<meta property="og:url" content="http://ambiton.xin/2017/12/25/core2/index.html">
+<meta property="og:site_name" content="Ethan个人博客">
+<meta property="og:description" content=".net core获取配置文件信息">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-21T03:59:40.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=".net core获取配置文件信息">
+<meta name="twitter:description" content=".net core获取配置文件信息">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Ethan个人博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>.net core获取配置文件信息 | Ethan个人博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay" style="background:#4d4d4d !important"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Ethan</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Ethan</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/Ethan_lzd@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-core/">.net core</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-first/">code first</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ef/">ef</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/identity-server4/">identity server4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapi/">webapi</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">乍然萧索,晚来晴初</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Ethan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://admin.test.pdcc.com.cn/upload/20171018JCRB5MHP1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Ethan</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Ethan</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/Ethan_lzd@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-core2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/25/core2/" class="article-date">
+      <time datetime="2017-12-25T06:05:10.000Z" itemprop="datePublished">2017-12-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      .net core获取配置文件信息
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core/net-core/">.net core</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excrept in="" index="" |="" 摘要=""><br> .net core获取配置文件信息<br><a id="more"></a></excrept></p>
+<the rest="" of="" contents="" |余下全文="">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在appsetting.json中配置数据库连接字符窜</span><br></pre></td></tr></table></figure>
+<p>//配置数据地址<br>     “ConnectionString”: {<br>    “SqlConnectionString”: “server=120.78.176.211;database=Ethan.Blog.DB;User Id=sa;password=123456;”,<br>    “MongoDbString”: “mongodb://120.78.176.211:27017”<br>     },</p>
+<p> “ApplicationConfiguration”: {<br>   //文件上传路径<br>   “FileUpPath”: “/upload/“,<br>  //是否启用单用户登录<br>  “IsSingleLogin”: “True”,<br> //允许上传的文件格式<br>   “AttachExtension”: “gif,jpg,jpeg,png,bmp,rar,zip,doc,docx,xls,xlsx,ppt,pptx,txt,flv,apk,mp4,mpg,ts,mpeg,mp3,bak,pdf”,<br>    //图片上传最大值KB<br>   “AttachImagesize”: 12400</p>
+<p>  },<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 新建一个ConnectionString类 ,接受此数据</span><br></pre></td></tr></table></figure></p>
+<pre><code> /// &lt;summary&gt;
+/// 接受数据库连接字符窜
+/// &lt;/summary&gt;
+public class ConnectionString {
+    /// &lt;summary&gt;
+    /// sql数据库 连接字符串
+    /// &lt;/summary&gt;
+    public string SqlConnectionString { get; set; }
+    /// &lt;summary&gt;
+    /// mongodb 数据库
+    /// &lt;/summary&gt;
+    public string MongoDbString { get; set; }
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 新建一个ApplicationConfiguration类 ,接受此数据</span><br></pre></td></tr></table></figure>
+<p> public class ApplicationConfiguration<br>    {</p>
+<pre><code>    public string FileUpPath { get; set; }
+   public bool IsSingleLogin{ get; set; }
+    public string AttachExtension { get; set; }
+    public int AttachImagesize { get; set; }
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">- 在strup.cs中添加获取代码</span><br></pre></td></tr></table></figure>
+<p>///读取配置文件字符窜<br>  services.Configure<connectionstring>(this.Configuration.GetSection(“ConnectionString”));</connectionstring></p>
+<p>  //读取配置文件<br>services.Configure<applicationconfiguration>(this.Configuration.GetSection(“ApplicationConfiguration”));</applicationconfiguration></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 在controller中注入获取</span><br></pre></td></tr></table></figure>
+<p> private  ConnectionString connectionString;<br>        /// <summary><br>        /// 构造函数 接受配置文件信息<br>        /// </summary><br>        public HomeController(IOptions<connectionstring> options) {<br>            connectionString = options.Value;</connectionstring></p>
+<pre><code>}
+
+public IOptions&lt;ApplicationConfiguration&gt; options;
+public HomeController(IUserService _userService, IOptions&lt;ApplicationConfiguration&gt; _appConfiguration) {
+    this.userService = _userService;
+    this.options = _appConfiguration;
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 当然 也可以创建一个类,单独获取配置信息</span><br></pre></td></tr></table></figure>
+<p>public class AppConfigurtaionServices<br>　　{<br>　　　　private readonly IOptions<applicationconfiguration> _appConfiguration;<br>　　　　public AppConfigurtaionServices(IOptions<applicationconfiguration> appConfiguration)<br>　　　　{<br>　　　　　　_appConfiguration = appConfiguration;<br>　　　　}</applicationconfiguration></applicationconfiguration></p>
+<p>　　　　public ApplicationConfiguration AppConfigurations<br>　　　　{<br>　　　　　　get<br>　　　　　　　　{<br>　　　　　　　　　　return _appConfiguration.Value;<br>　　　　　　　　}<br>　　　　}<br>　　}　　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#### 注意,不要忘记添加到注入 </span><br><span class="line"></span><br><span class="line">services.AddTransient&lt;AppConfigurtaionServices&gt;();  </span><br><span class="line"></span><br><span class="line"> 然后就可以使用了</span><br><span class="line"> </span><br><span class="line">![](https://images2015.cnblogs.com/blog/771789/201608/771789-20160804152623184-240740623.jpg)</span><br></pre></td></tr></table></figure></p>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/25/core2/">.net core获取配置文件信息</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
+        <p><span>发布时间:</span>2017-12-25, 14:05:10</p>
+        <p><span>最后更新:</span>2018-04-21, 11:59:40</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/25/core2/" title=".net core获取配置文件信息">http://ambiton.xin/2017/12/25/core2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/12/25/core2/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/12/25/core3/">
+                    .net core 使用code first创建数据库
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/25/core1/">
+                    .net core中授权认证1 使用Cookie-based认证实现
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":".net core获取配置文件信息　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+         <section class="changyan" id="comments">    
+   <!--PC和WAP自适应版-->
+<div id="SOHUCS"  sid=".net core获取配置文件信息"></div> 
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cytzwJlWe',
+conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
+});
+</script>
+<a href="#SOHUCS" id="changyan_count_unit"></a>评论数
+<a href="#SOHUCS" id="changyan_parti_unit"></a>参与数
+<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">
+</script>
+    
+    <script> loadComment(); </script>
+
+</section>
+    
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/25/core3/" title="上一篇: .net core 使用code first创建数据库">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/25/core1/" title="下一篇: .net core中授权认证1 使用Cookie-based认证实现">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core3/">.net core 使用code first创建数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core2/">.net core获取配置文件信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core1/">.net core中授权认证1 使用Cookie-based认证实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongoforcore/">.net core webapi中使用mongodb实现数据存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongo1/">mongodb简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi2/">.net core webapi使用swagger生成api帮助文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi1/">.net core webapi使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/identityserver/">identity server4 客服端模式认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq4/">rabbitmq4 fanout分列模式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue3/">vuejs学习3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue2/">vuejs学习2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue1/">vuejs学习1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/excel/">使用Aspose.Cells实现的导入导出(备忘)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvc2/">mvc中ef仓储类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvs1/">mvc中实现图片验证码</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Ethan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
