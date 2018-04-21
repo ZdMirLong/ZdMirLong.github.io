@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
-<meta name="keywords" content=".net core,identity server4">
+<meta name="description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
+<meta name="keywords" content="rabbitmq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="identity server4 客服端模式认证">
-<meta property="og:url" content="http://ambiton.xin/2018/04/18/identityserver/index.html">
+<meta property="og:title" content="rabbitmq基本概念">
+<meta property="og:url" content="http://ambiton.xin/2017/12/18/rabbitmq1/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
+<meta property="og:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T05:30:36.326Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhx1kc5mdj30sm083dgd.jpg">
+<meta property="og:updated_time" content="2018-04-21T03:24:54.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="identity server4 客服端模式认证">
-<meta name="twitter:description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
+<meta name="twitter:title" content="rabbitmq基本概念">
+<meta name="twitter:description" content="Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhx1kc5mdj30sm083dgd.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>identity server4 客服端模式认证 | Ethan个人博客</title>
+<title>rabbitmq基本概念 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-identityserver" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rabbitmq1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/identityserver/" class="article-date">
-      <time datetime="2018-04-18T14:19:42.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2017/12/18/rabbitmq1/" class="article-date">
+      <time datetime="2017-12-18T14:26:55.000Z" itemprop="datePublished">2017-12-18</time>
 </a>
 
 
@@ -290,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      identity server4 客服端模式认证
+      rabbitmq基本概念
     </h1>
   
 
@@ -298,14 +300,10 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -315,128 +313,76 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p>
-<ol>
-<li>使用vscode创建项目<blockquote>
-<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。<br><a id="more"></a> </excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h4 id="rabbitmq基本概念"><a href="#rabbitmq基本概念" class="headerlink" title="rabbitmq基本概念"></a>rabbitmq基本概念</h4><ol>
+<li><p>什么是rabbitmq </p>
+<blockquote>
+<p> Rabbitmq,即AMQP，Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。 AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。 RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。 下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。</p>
 </blockquote>
 </li>
-<li>添加identityserver4引用<blockquote>
-<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
+<li><p>为什么使用mq?</p>
+<blockquote>
+<p> 场景说明：用户注册后，需要发注册邮件和注册短信,传统的做法有两种1.串行的方式;2.并行的方式<br>(1)串行方式:将注册信息写入数据库后,发送注册邮件,再发送注册短信,以上三个任务全部完成后才返回给客户端。 这有一个问题是,邮件,短信并不是必须的,它只是一个通知,而这种做法让客户端等待没 有必要等待的东西<br> <img src="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhx1kc5mdj30sm083dgd.jpg" alt=""></p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
-</blockquote>
+<p>实际上我们并不需要知道短信是否发送成功,因为我们在发送短信时只需要将对应的参数传给调用的第三方服务发送即可.如果第三方短信平台因为网络或者其他问题,导致无法返回响应结果,程序也就在这里阻塞而无法操作.</p>
 <ol start="3">
-<li>添加identityserver中间件并使用<blockquote>
-<p>首先starup中ConfigureServices方法启用中间件</p>
-<a id="more"></a>
-</blockquote>
-<the rest="" of="" contents="" |="" 余下全文=""></the></li>
-<li>使用vscode创建项目<blockquote>
-<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
-</blockquote>
-</li>
-<li>添加identityserver4引用<blockquote>
-<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
+<li>解决 <blockquote>
+<p>引入消息队列后，把发送邮件,短信不是必须的业务逻辑异步处理,通过消息队列在去执行发送功能</p>
 </blockquote>
 </li>
 </ol>
+<p><strong>关于mq的相关概念可以去查看官方文档 这里不再过多阐述</strong></p>
+<p><strong>以下是自己的理解,如有不对,还请纠正,谢谢! </strong></p>
+<ul>
+<li>生成者  用于发送消息的程序</li>
+<li>消费者  用于消费消息的程序</li>
+<li>队列 暂存消息的缓存区<blockquote>
+<p>rabbitmq的核心思想是 生成者不直接发送任何消息到队列,而实际上生产者并不知道 消息是否会被传送到队列.相反 ,生产者只能将信息发送到exchange交换器中,而交换机负责接收生产者发送的消息,并且将消息发送到指定的队列</p>
+</blockquote>
+</li>
+<li>消息交换机type的类型 创建交换机时需要channel.ExchangeDeclare(name, type,true,false,null);<ul>
+<li>direct 直接的</li>
+<li>Topic  主题</li>
+<li>Headers 标题</li>
+<li>Fanout  分列</li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
+<p>Direct Exchange – 处理路由键。需要将一个队列绑定到交换机上，要求该消息与一个特定的路由键完全匹配。这是一个完整的匹配。<br>如果一个队列绑定到该交换机上要求路由键 “key”，则只有被标记为“key”的消息才被转发，只会转发key</p>
 </blockquote>
-<ol start="3">
-<li>添加identityserver中间件并使用<blockquote>
-<p>首先starup中ConfigureServices方法启用中间件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加identityserver中间件</span><br><span class="line">services.AddIdentityServer()</span><br><span class="line">.AddDeveloperSigningCredential();</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ol>
 <blockquote>
-<p>在Configure方法中启用中间件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在Program.cs中设置启动端口为5000</span><br></pre></td></tr></table></figure></p>
+<p>Topic Exchange将路由值与某种模式进行匹配,此时队列需要绑定在一个模式上.符号“#”匹配一个或多个词，符号“<em>”匹配不多不少一个词。因此“audit.#”能够匹配到“audit.irs.corporate”，但是“audit.</em>” 只会匹配到“audit.irs”。  <a href="http://www.cnblogs.com/lrzr/p/7365731.html" target="_blank" rel="noopener">传送门</a></p>
 </blockquote>
-<pre><code> public static IWebHost BuildWebHost(string[] args) =&gt;
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup&lt;Startup&gt;()
-            .UseUrls(&quot;http://localhost:5000&quot;)//设置启动端口为5000
-            .Build();
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 在根目录创建config.cs文件,定义api和resource</span><br></pre></td></tr></table></figure>
-<p>using System.Collections;<br>using System.Collections.Generic;<br>using IdentityServer4.Models;</p>
-<p>namespace IdentityCenter<br>{</p>
-<pre><code>public class config
-{
-
-    ///获取所有的api集合
-    public static IEnumerable&lt;ApiResource&gt; GetResource()
-    {
-        return new List&lt;ApiResource&gt;{
-        new ApiResource(&quot;api&quot;,&quot;My Api&quot;)
-    };
-
-
-    }
-
-    /// &lt;summary&gt;
-    /// 获取所有客户端
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public static IEnumerable&lt;Client&gt; GetClients()
-    {
-        return new List&lt;Client&gt;{
-
-     new Client{
-           ClientId=&quot;client&quot;,//当前客户端id
-           AllowedGrantTypes=GrantTypes.ClientCredentials,//使用客服端方式
-           ClientSecrets={
-              new Secret(&quot;Secret&quot;.Sha256())
-            },
-            AllowedScopes={&quot;api&quot;}//指定可以访问的api 与上个方法定义的一致
-
-     }
- };
-
-    }
-
-}
-</code></pre><p>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">5. 在starup.cs中配置添加config方法</span><br></pre></td></tr></table></figure>
-<p> public void ConfigureServices(IServiceCollection services)<br>        {<br>            //添加identityserver中间件<br>            services.AddIdentityServer()<br>            .AddDeveloperSigningCredential()<br>            .AddInMemoryApiResources(config.GetResource())//添加config.cs中定义的客户端和服务端<br>            .AddInMemoryClients(config.GetClients());<br>            //添加mvc中间件<br>            services.AddMvc();<br>        }<br><code>`</code></p>
-<ol start="6">
-<li>执行命令 dotnet run启动项目 访问<a href="http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码" target="_blank" rel="noopener">http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码</a></li>
-</ol>
-
+<blockquote>
+<p>Fanout Exchange – 不处理路由键。你只需要简单的将队列绑定到交换机上。 Fanout交换机转发消息是最快的。</p>
+</blockquote>
+</the>
       
     </div>
     
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/04/18/identityserver/">identity server4 客服端模式认证</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
-        <p><span>发布时间:</span>2018-04-18, 22:19:42</p>
-        <p><span>最后更新:</span>2018-04-19, 13:30:36</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/04/18/identityserver/" title="identity server4 客服端模式认证">http://ambiton.xin/2018/04/18/identityserver/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2018/04/18/identityserver/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/12/18/rabbitmq2/">
+                    rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/25/core1/">
-                    .net core中授权认证1 使用Cookie-based认证实现
+                <a href="/2017/11/07/vue3/">
+                    vuejs学习3
                 </a>
             </div>
         
@@ -448,7 +394,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#identity-server-4"><span class="toc-number">1.</span> <span class="toc-text">identity server 4</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#rabbitmq基本概念"><span class="toc-number">1.</span> <span class="toc-text">rabbitmq基本概念</span></a></li></ol>
         
     </div>
     <style>
@@ -484,7 +430,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"identity server4 客服端模式认证　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"rabbitmq基本概念　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -500,7 +446,7 @@
     
          <section class="changyan" id="comments">    
    <!--PC和WAP自适应版-->
-<div id="SOHUCS"  sid="identity server4 客服端模式认证"></div> 
+<div id="SOHUCS"  sid="rabbitmq基本概念"></div> 
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -524,13 +470,15 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/12/18/rabbitmq2/" title="上一篇: rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/25/core1/" title="下一篇: .net core中授权认证1 使用Cookie-based认证实现">
+            <a href="/2017/11/07/vue3/" title="下一篇: vuejs学习3">
                 <i class="fa fa-angle-right"></i>
             </a>
         

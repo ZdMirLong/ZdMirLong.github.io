@@ -15,18 +15,24 @@
 
 
 
-<meta name="description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
-<meta name="keywords" content=".net core,identity server4">
+<meta name="description" content="什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。  ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobil">
+<meta name="keywords" content=".net core,webapi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="identity server4 客服端模式认证">
-<meta property="og:url" content="http://ambiton.xin/2018/04/18/identityserver/index.html">
+<meta property="og:title" content=".net core webapi使用">
+<meta property="og:url" content="http://ambiton.xin/2017/12/21/webapi1/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
+<meta property="og:description" content="什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。  ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobil">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T05:30:36.326Z">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/006MNXdAgy1fqhycrdc0gj30pz0ep3yq.jpg">
+<meta property="og:updated_time" content="2018-04-21T03:25:13.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="identity server4 客服端模式认证">
-<meta name="twitter:description" content="identity server 4  使用vscode创建项目 首先vscode安装c# nugget扩展cd到需要创建项目的目录 执行命令dotnet new webapi –name IdentityCenter   添加identityserver4引用  vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装">
+<meta name="twitter:title" content=".net core webapi使用">
+<meta name="twitter:description" content="什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。  ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobil">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +64,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>identity server4 客服端模式认证 | Ethan个人博客</title>
+<title>.net core webapi使用 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +277,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-identityserver" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-webapi1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/identityserver/" class="article-date">
-      <time datetime="2018-04-18T14:19:42.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2017/12/21/webapi1/" class="article-date">
+      <time datetime="2017-12-21T05:51:10.000Z" itemprop="datePublished">2017-12-21</time>
 </a>
 
 
@@ -290,7 +296,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      identity server4 客服端模式认证
+      .net core webapi使用
     </h1>
   
 
@@ -299,13 +305,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/identity-server4/">identity server4</a>
+    <a class="article-category-link" href="/categories/net-core-Or-Identity-server/">.net core Or Identity server</a><a class="article-category-link" href="/categories/net-core-Or-Identity-server/webapi/">webapi</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/identity-server4/">identity server4</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webapi/">webapi</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -315,99 +321,106 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p>
-<ol>
-<li>使用vscode创建项目<blockquote>
-<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
-</blockquote>
-</li>
-<li>添加identityserver4引用<blockquote>
-<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
-</blockquote>
-</li>
-</ol>
+        <excrept in="" index="" |="" 摘要="">
+
+<p>什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。</p>
 <blockquote>
-<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
+<p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobile devices. ASP.NET Web API   is an ideal platform for building RESTful applications on the .NET Framework.</p>
 </blockquote>
-<ol start="3">
-<li>添加identityserver中间件并使用<blockquote>
-<p>首先starup中ConfigureServices方法启用中间件</p>
-<a id="more"></a>
-</blockquote>
-<the rest="" of="" contents="" |="" 余下全文=""></the></li>
-<li>使用vscode创建项目<blockquote>
-<p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p>
-</blockquote>
-</li>
-<li>添加identityserver4引用<blockquote>
-<p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p>
-</blockquote>
-</li>
-</ol>
+<p>Web API在ASP.NET完整框架中地位如下图，与SignalR一起同为构建Service的框架。Web API负责构建http常规服务，而SingalR主要负责的是构建实时服务，例如股票，聊天室，在线游戏等实时性要求比较高的服务。<br><img src="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg" alt="图片"></p>
+<p>Web API最重要的是可以构建面向各种客户端的服务。另外与WCF REST Service不同在于，Web API利用Http协议的各个方面来表达服务(例如 URI/request response header/caching/versioning/content format)，因此就省掉很多配置。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg" alt="图片"></p>
+<p>当你遇到以下这些情况的时候，就可以考虑使用Web API了。<br><a id="more"></a></p>
+<the rest="" of="" contents="" |余下全文="">
+
+
+<h4 id="net-core-webapi使用"><a href="#net-core-webapi使用" class="headerlink" title=".net core webapi使用"></a>.net core webapi使用</h4><p>什么是webapi 官方定义如下，强调两个关键点，即可以对接各种客户端（浏览器，移动设备），构建http服务的框架。</p>
 <blockquote>
-<p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p>
+<p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobile devices. ASP.NET Web API   is an ideal platform for building RESTful applications on the .NET Framework.</p>
 </blockquote>
-<ol start="3">
-<li>添加identityserver中间件并使用<blockquote>
-<p>首先starup中ConfigureServices方法启用中间件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加identityserver中间件</span><br><span class="line">services.AddIdentityServer()</span><br><span class="line">.AddDeveloperSigningCredential();</span><br></pre></td></tr></table></figure>
-</blockquote>
+<p>Web API在ASP.NET完整框架中地位如下图，与SignalR一起同为构建Service的框架。Web API负责构建http常规服务，而SingalR主要负责的是构建实时服务，例如股票，聊天室，在线游戏等实时性要求比较高的服务。<br><img src="http://wx2.sinaimg.cn/large/006MNXdAgy1fqhx73nux2j30ic08ejsl.jpg" alt="图片"></p>
+<p>Web API最重要的是可以构建面向各种客户端的服务。另外与WCF REST Service不同在于，Web API利用Http协议的各个方面来表达服务(例如 URI/request response header/caching/versioning/content format)，因此就省掉很多配置。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006MNXdAgy1fqhxauawy3j30cz07775o.jpg" alt="图片"></p>
+<ul>
+<li>当你遇到以下这些情况的时候，就可以考虑使用Web API了。<ul>
+<li>需要Web Service但是不需要SOAP</li>
+<li>需要在已有的WCF服务基础上建立non-soap-based http服务</li>
+<li>只想发布一些简单的Http服务，不想使用相对复杂的WCF配置</li>
+<li>发布的服务可能会被带宽受限的设备访问</li>
+<li>希望使用开源框架，关键时候可以自己调试或者自定义一下框架</li>
+</ul>
 </li>
-</ol>
+</ul>
+<h3 id="关于相关概念百度一下吧-下面开始使用web-api"><a href="#关于相关概念百度一下吧-下面开始使用web-api" class="headerlink" title="关于相关概念百度一下吧 ,下面开始使用web api"></a>关于相关概念百度一下吧 ,下面开始使用web api</h3><ul>
+<li>新建 .net core application ,选中webapi</li>
+</ul>
+<p>url操作说明  </p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">Http请求类型</th>
+<th style="text-align:right">url表现形式 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>  Get contact list</td>
+<td style="text-align:center">GET</td>
+<td style="text-align:right">/api/contacts</td>
+</tr>
+<tr>
+<td>Get filtered contacts</td>
+<td style="text-align:center">GET</td>
+<td style="text-align:right">/api/contacts?$top=2</td>
+</tr>
+<tr>
+<td>Get contact by ID</td>
+<td style="text-align:center">GET</td>
+<td style="text-align:right">/api/contacts/id</td>
+</tr>
+<tr>
+<td>Create new contact</td>
+<td style="text-align:center">POST</td>
+<td style="text-align:right">/api/contacts</td>
+</tr>
+<tr>
+<td>Update a contact</td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:right">/api/contacts/id</td>
+</tr>
+<tr>
+<td>Delete a contact</td>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:right">/api/contacts/id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实例如下"><a href="#实例如下" class="headerlink" title="实例如下"></a>实例如下</h4><ul>
+<li>get请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class HomeController : Controller</span><br><span class="line">   &#123;</span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;paged&quot;)]</span><br><span class="line">       public async  Task&lt;IEnumerable&lt;string&gt;&gt; Get()&#123;</span><br><span class="line"></span><br><span class="line">           await Task.Delay(500);</span><br><span class="line">           return new string []&#123;&quot;hvalue1&quot;,&quot;hvalue2&quot; &#125;;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       /// &lt;summary&gt;</span><br><span class="line">       /// &lt;/summary&gt;</span><br><span class="line">       /// &lt;param name=&quot;id&quot;&gt;&lt;/param&gt;</span><br><span class="line">       /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">       [HttpGet,router(&quot;&#123;id&#125;&quot;)]</span><br><span class="line">       public string Get(int id)</span><br><span class="line">       &#123;</span><br><span class="line"></span><br><span class="line">           return id + &quot;h&quot;;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
-<p>在Configure方法中启用中间件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在Program.cs中设置启动端口为5000</span><br></pre></td></tr></table></figure></p>
+<p>说明 : 在一个控制器中有多个http请求相同的方法时,须指定其路由别名,否则会出现默认调用第一个的情况(踩过坑的)<br> router 给方法指定路由别名 .如果带参数的需要指定参数的名称,用{}包装 如router(“{id}”) </p>
 </blockquote>
-<pre><code> public static IWebHost BuildWebHost(string[] args) =&gt;
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup&lt;Startup&gt;()
-            .UseUrls(&quot;http://localhost:5000&quot;)//设置启动端口为5000
-            .Build();
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 在根目录创建config.cs文件,定义api和resource</span><br></pre></td></tr></table></figure>
-<p>using System.Collections;<br>using System.Collections.Generic;<br>using IdentityServer4.Models;</p>
-<p>namespace IdentityCenter<br>{</p>
-<pre><code>public class config
-{
-
-    ///获取所有的api集合
-    public static IEnumerable&lt;ApiResource&gt; GetResource()
-    {
-        return new List&lt;ApiResource&gt;{
-        new ApiResource(&quot;api&quot;,&quot;My Api&quot;)
-    };
-
-
-    }
-
-    /// &lt;summary&gt;
-    /// 获取所有客户端
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
-    public static IEnumerable&lt;Client&gt; GetClients()
-    {
-        return new List&lt;Client&gt;{
-
-     new Client{
-           ClientId=&quot;client&quot;,//当前客户端id
-           AllowedGrantTypes=GrantTypes.ClientCredentials,//使用客服端方式
-           ClientSecrets={
-              new Secret(&quot;Secret&quot;.Sha256())
-            },
-            AllowedScopes={&quot;api&quot;}//指定可以访问的api 与上个方法定义的一致
-
-     }
- };
-
-    }
-
-}
-</code></pre><p>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">5. 在starup.cs中配置添加config方法</span><br></pre></td></tr></table></figure>
-<p> public void ConfigureServices(IServiceCollection services)<br>        {<br>            //添加identityserver中间件<br>            services.AddIdentityServer()<br>            .AddDeveloperSigningCredential()<br>            .AddInMemoryApiResources(config.GetResource())//添加config.cs中定义的客户端和服务端<br>            .AddInMemoryClients(config.GetClients());<br>            //添加mvc中间件<br>            services.AddMvc();<br>        }<br><code>`</code></p>
-<ol start="6">
-<li>执行命令 dotnet run启动项目 访问<a href="http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码" target="_blank" rel="noopener">http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码</a></li>
-</ol>
-
+<ul>
+<li>post请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> [HttpPost]</span><br><span class="line">public async Task&lt;IActionResult&gt; Post(Article article) &#123;</span><br><span class="line">    return Ok(article);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>值得注意的是:当在post请求指定为<code>public async Task&lt;IActionResult&gt; Post([FromBody] test test)</code> [FromBody] 序列化时,前端传入的是一个json字符串<br><img src="http://wx4.sinaimg.cn/large/006MNXdAgy1fqhycrdc0gj30pz0ep3yq.jpg" alt=""><br>当不指定为FromBody时,传入的是一个对象</p>
+</blockquote>
+<ul>
+<li>delete请求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[HttpDelete]</span><br><span class="line">   public async Task&lt;IActionResult&gt; Delete(string id) &#123;</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                var result = await dbContext.DeleteByAidAsync(&quot;linduBlog&quot;, id);</span><br><span class="line">                return Ok(result);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                return BadRequest();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="设置跨域访问"><a href="#设置跨域访问" class="headerlink" title="设置跨域访问"></a>设置跨域访问</h3><p>在Startup文件中添加cors跨域,然后在controller上启用cors  [EnableCors(“any”)] //设置跨域访问</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void ConfigureServices(IServiceCollection services)</span><br><span class="line">    &#123;</span><br><span class="line">        services.AddMvc();</span><br><span class="line"></span><br><span class="line">         services.AddCors(options=&gt; &#123;</span><br><span class="line">            options.AddPolicy(&quot;any&quot;,build=&gt; &#123;</span><br><span class="line">            build.AllowAnyMethod()</span><br><span class="line">            .AllowAnyHeader()</span><br><span class="line">            .AllowAnyOrigin()</span><br><span class="line">            .AllowCredentials();</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里设置为AllowAnyMethod 表示所有的请求都能访问.当我们需要只允许某个服务访问时应在build处添加 <code>builder.WithOrigins(urls)</code>urls表示允许访问的服务地址</p>
+</blockquote>
+<h3 id="设置陀螺峰命名问题"><a href="#设置陀螺峰命名问题" class="headerlink" title="设置陀螺峰命名问题"></a>设置陀螺峰命名问题</h3><p>  在 core webapi中,当返回的类型数据包含大写时会自动转换为小写.此问题需要在stratup中AddJsonOptions方法配置<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">services.AddMvc()//去掉默认的将大写改为小写的功能</span><br><span class="line">        .AddJsonOptions(options =&gt; options.SerializerSettings.</span><br><span class="line">          ContractResolver = new DefaultContractResolver());</span><br></pre></td></tr></table></figure></p>
+</the></excrept>
       
     </div>
     
@@ -415,13 +428,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/04/18/identityserver/">identity server4 客服端模式认证</a></p>
+        <p><span>本文标题:</span><a href="/2017/12/21/webapi1/">.net core webapi使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
-        <p><span>发布时间:</span>2018-04-18, 22:19:42</p>
-        <p><span>最后更新:</span>2018-04-19, 13:30:36</p>
+        <p><span>发布时间:</span>2017-12-21, 13:51:10</p>
+        <p><span>最后更新:</span>2018-04-21, 11:25:13</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/04/18/identityserver/" title="identity server4 客服端模式认证">http://ambiton.xin/2018/04/18/identityserver/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2018/04/18/identityserver/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/21/webapi1/" title=".net core webapi使用">http://ambiton.xin/2017/12/21/webapi1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/12/21/webapi1/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -433,10 +446,16 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/12/21/webapi2/">
+                    .net core webapi使用swagger生成api帮助文档
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/25/core1/">
-                    .net core中授权认证1 使用Cookie-based认证实现
+                <a href="/2017/12/19/rabbitmq4/">
+                    rabbitmq4 fanout分列模式使用
                 </a>
             </div>
         
@@ -448,7 +467,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#identity-server-4"><span class="toc-number">1.</span> <span class="toc-text">identity server 4</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#net-core-webapi使用"><span class="toc-number">1.</span> <span class="toc-text">.net core webapi使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于相关概念百度一下吧-下面开始使用web-api"><span class="toc-number"></span> <span class="toc-text">关于相关概念百度一下吧 ,下面开始使用web api</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实例如下"><span class="toc-number">1.</span> <span class="toc-text">实例如下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置跨域访问"><span class="toc-number"></span> <span class="toc-text">设置跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置陀螺峰命名问题"><span class="toc-number"></span> <span class="toc-text">设置陀螺峰命名问题</span></a>
         
     </div>
     <style>
@@ -484,7 +503,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"identity server4 客服端模式认证　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":".net core webapi使用　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -500,7 +519,7 @@
     
          <section class="changyan" id="comments">    
    <!--PC和WAP自适应版-->
-<div id="SOHUCS"  sid="identity server4 客服端模式认证"></div> 
+<div id="SOHUCS"  sid=".net core webapi使用"></div> 
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -524,13 +543,15 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/12/21/webapi2/" title="上一篇: .net core webapi使用swagger生成api帮助文档">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/25/core1/" title="下一篇: .net core中授权认证1 使用Cookie-based认证实现">
+            <a href="/2017/12/19/rabbitmq4/" title="下一篇: rabbitmq4 fanout分列模式使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
