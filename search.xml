@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>identity server4 客服端模式认证</title>
+      <link href="/2018/03/20/identityserver/"/>
+      <url>/2018/03/20/identityserver/</url>
+      <content type="html"><![CDATA[<h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p><ol><li>使用vscode创建项目<blockquote><p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p></blockquote></li><li>添加identityserver4引用<blockquote><p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p></blockquote></li></ol><blockquote><p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p></blockquote><ol start="3"><li>添加identityserver中间件并使用<blockquote><p>首先starup中ConfigureServices方法启用中间件</p><a id="more"></a></blockquote><the rest="" of="" contents="" |="" 余下全文=""></the></li><li>使用vscode创建项目<blockquote><p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p></blockquote></li><li>添加identityserver4引用<blockquote><p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p></blockquote></li></ol><blockquote><p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p></blockquote><ol start="3"><li>添加identityserver中间件并使用<blockquote><p>首先starup中ConfigureServices方法启用中间件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加identityserver中间件</span><br><span class="line">services.AddIdentityServer()</span><br><span class="line">.AddDeveloperSigningCredential();</span><br></pre></td></tr></table></figure></blockquote></li></ol><blockquote><p>在Configure方法中启用中间件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在Program.cs中设置启动端口为5000</span><br></pre></td></tr></table></figure></p></blockquote><pre><code> public static IWebHost BuildWebHost(string[] args) =&gt;        WebHost.CreateDefaultBuilder(args)            .UseStartup&lt;Startup&gt;()            .UseUrls(&quot;http://localhost:5000&quot;)//设置启动端口为5000            .Build();}</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 在根目录创建config.cs文件,定义api和resource</span><br></pre></td></tr></table></figure><p>using System.Collections;<br>using System.Collections.Generic;<br>using IdentityServer4.Models;</p><p>namespace IdentityCenter<br>{</p><pre><code>public class config{    ///获取所有的api集合    public static IEnumerable&lt;ApiResource&gt; GetResource()    {        return new List&lt;ApiResource&gt;{        new ApiResource(&quot;api&quot;,&quot;My Api&quot;)    };    }    /// &lt;summary&gt;    /// 获取所有客户端    /// &lt;/summary&gt;    /// &lt;returns&gt;&lt;/returns&gt;    public static IEnumerable&lt;Client&gt; GetClients()    {        return new List&lt;Client&gt;{     new Client{           ClientId=&quot;client&quot;,//当前客户端id           AllowedGrantTypes=GrantTypes.ClientCredentials,//使用客服端方式           ClientSecrets={              new Secret(&quot;Secret&quot;.Sha256())            },            AllowedScopes={&quot;api&quot;}//指定可以访问的api 与上个方法定义的一致     } };    }}</code></pre><p>}</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">5. 在starup.cs中配置添加config方法</span><br></pre></td></tr></table></figure><p> public void ConfigureServices(IServiceCollection services)<br>        {<br>            //添加identityserver中间件<br>            services.AddIdentityServer()<br>            .AddDeveloperSigningCredential()<br>            .AddInMemoryApiResources(config.GetResource())//添加config.cs中定义的客户端和服务端<br>            .AddInMemoryClients(config.GetClients());<br>            //添加mvc中间件<br>            services.AddMvc();<br>        }<br><code>`</code></p><ol start="6"><li>执行命令 dotnet run启动项目 访问<a href="http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码" target="_blank" rel="noopener">http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码</a></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> .net core Or Identity server </category>
+          
+          <category> .net core </category>
+          
+          <category> identity server4 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> .net core </tag>
+            
+            <tag> identity server4 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>.net core 使用code first创建数据库</title>
       <link href="/2017/12/25/core3/"/>
       <url>/2017/12/25/core3/</url>
@@ -166,33 +193,6 @@
             <tag> .net core </tag>
             
             <tag> webapi </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>identity server4 客服端模式认证</title>
-      <link href="/2017/12/20/identityserver/"/>
-      <url>/2017/12/20/identityserver/</url>
-      <content type="html"><![CDATA[<h1 id="identity-server-4"><a href="#identity-server-4" class="headerlink" title="identity server 4"></a>identity server 4</h1><p><excrept inindex="" |="" 首页摘要=""></excrept></p><ol><li>使用vscode创建项目<blockquote><p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p></blockquote></li><li>添加identityserver4引用<blockquote><p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p></blockquote></li></ol><blockquote><p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p></blockquote><ol start="3"><li>添加identityserver中间件并使用<blockquote><p>首先starup中ConfigureServices方法启用中间件</p><a id="more"></a></blockquote><the rest="" of="" contents="" |="" 余下全文=""></the></li><li>使用vscode创建项目<blockquote><p>首先vscode安装c# nugget扩展<br>cd到需要创建项目的目录 执行命令<br>dotnet new webapi –name IdentityCenter</p></blockquote></li><li>添加identityserver4引用<blockquote><p> vscode下按住 ctrl+p 选中nugget add package ,输入       identityserver,选择安装 ,安装后点击restore</p></blockquote></li></ol><blockquote><p>  cd到创建的项目目录下,重新加载项目,否则命名空间无法出现智能提示 cd .\IdentityCenter\  执行命令 dotnet restore</p></blockquote><ol start="3"><li>添加identityserver中间件并使用<blockquote><p>首先starup中ConfigureServices方法启用中间件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加identityserver中间件</span><br><span class="line">services.AddIdentityServer()</span><br><span class="line">.AddDeveloperSigningCredential();</span><br></pre></td></tr></table></figure></blockquote></li></ol><blockquote><p>在Configure方法中启用中间件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在Program.cs中设置启动端口为5000</span><br></pre></td></tr></table></figure></p></blockquote><pre><code> public static IWebHost BuildWebHost(string[] args) =&gt;        WebHost.CreateDefaultBuilder(args)            .UseStartup&lt;Startup&gt;()            .UseUrls(&quot;http://localhost:5000&quot;)//设置启动端口为5000            .Build();}</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 在根目录创建config.cs文件,定义api和resource</span><br></pre></td></tr></table></figure><p>using System.Collections;<br>using System.Collections.Generic;<br>using IdentityServer4.Models;</p><p>namespace IdentityCenter<br>{</p><pre><code>public class config{    ///获取所有的api集合    public static IEnumerable&lt;ApiResource&gt; GetResource()    {        return new List&lt;ApiResource&gt;{        new ApiResource(&quot;api&quot;,&quot;My Api&quot;)    };    }    /// &lt;summary&gt;    /// 获取所有客户端    /// &lt;/summary&gt;    /// &lt;returns&gt;&lt;/returns&gt;    public static IEnumerable&lt;Client&gt; GetClients()    {        return new List&lt;Client&gt;{     new Client{           ClientId=&quot;client&quot;,//当前客户端id           AllowedGrantTypes=GrantTypes.ClientCredentials,//使用客服端方式           ClientSecrets={              new Secret(&quot;Secret&quot;.Sha256())            },            AllowedScopes={&quot;api&quot;}//指定可以访问的api 与上个方法定义的一致     } };    }}</code></pre><p>}</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">5. 在starup.cs中配置添加config方法</span><br></pre></td></tr></table></figure><p> public void ConfigureServices(IServiceCollection services)<br>        {<br>            //添加identityserver中间件<br>            services.AddIdentityServer()<br>            .AddDeveloperSigningCredential()<br>            .AddInMemoryApiResources(config.GetResource())//添加config.cs中定义的客户端和服务端<br>            .AddInMemoryClients(config.GetClients());<br>            //添加mvc中间件<br>            services.AddMvc();<br>        }<br><code>`</code></p><ol start="6"><li>执行命令 dotnet run启动项目 访问<a href="http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码" target="_blank" rel="noopener">http://localhost:5000/.well-known/openid-configuration可以看到生成的对应模式密码</a></li></ol>]]></content>
-      
-      <categories>
-          
-          <category> .net core Or Identity server </category>
-          
-          <category> .net core </category>
-          
-          <category> identity server4 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> .net core </tag>
-            
-            <tag> identity server4 </tag>
             
         </tags>
       
