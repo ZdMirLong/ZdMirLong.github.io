@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content=".net core获取配置文件信息">
-<meta name="keywords" content=".net core">
+<meta name="description" content="mvc继承JsonResult进行时间格式化">
+<meta name="keywords" content="mvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".net core获取配置文件信息">
-<meta property="og:url" content="http://ambiton.xin/2017/12/25/core2/index.html">
+<meta property="og:title" content="mvc继承JsonResult进行时间格式化">
+<meta property="og:url" content="http://ambiton.xin/2017/04/15/mvcJsonResult/index.html">
 <meta property="og:site_name" content="Ethan个人博客">
-<meta property="og:description" content=".net core获取配置文件信息">
+<meta property="og:description" content="mvc继承JsonResult进行时间格式化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-21T04:14:57.308Z">
+<meta property="og:updated_time" content="2018-04-26T06:31:12.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".net core获取配置文件信息">
-<meta name="twitter:description" content=".net core获取配置文件信息">
+<meta name="twitter:title" content="mvc继承JsonResult进行时间格式化">
+<meta name="twitter:description" content="mvc继承JsonResult进行时间格式化">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>.net core获取配置文件信息 | Ethan个人博客</title>
+<title>mvc继承JsonResult进行时间格式化 | Ethan个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-core2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mvcJsonResult" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/25/core2/" class="article-date">
-      <time datetime="2017-12-25T06:15:10.000Z" itemprop="datePublished">2017-12-25</time>
+      <a href="/2017/04/15/mvcJsonResult/" class="article-date">
+      <time datetime="2017-04-15T07:43:22.000Z" itemprop="datePublished">2017-04-15</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      .net core获取配置文件信息
+      mvc继承JsonResult进行时间格式化
     </h1>
   
 
@@ -295,13 +295,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/net-core/">.net core</a><a class="article-category-link" href="/categories/net-core/net-core/">.net core</a>
+    <a class="article-category-link" href="/categories/Asp-Net-Mvc/">Asp.Net Mvc</a><a class="article-category-link" href="/categories/Asp-Net-Mvc/mvc/">mvc</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-core/">.net core</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,48 +311,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excrept in="" index="" |="" 摘要=""><br> .net core获取配置文件信息<br><a id="more"></a></excrept></p>
+        <p><excrept in="" index="" |="" 摘要=""><br>mvc继承JsonResult进行时间格式化<br><a id="more"></a></excrept></p>
 <the rest="" of="" contents="" |余下全文="">
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在appsetting.json中配置数据库连接字符窜</span><br></pre></td></tr></table></figure>
-<p>//配置数据地址<br>     “ConnectionString”: {<br>    “SqlConnectionString”: “server=120.78.176.211;database=Ethan.Blog.DB;User Id=sa;password=123456;”,<br>    “MongoDbString”: “mongodb://120.78.176.211:27017”<br>     },</p>
-<p> “ApplicationConfiguration”: {<br>   //文件上传路径<br>   “FileUpPath”: “/upload/“,<br>  //是否启用单用户登录<br>  “IsSingleLogin”: “True”,<br> //允许上传的文件格式<br>   “AttachExtension”: “gif,jpg,jpeg,png,bmp,rar,zip,doc,docx,xls,xlsx,ppt,pptx,txt,flv,apk,mp4,mpg,ts,mpeg,mp3,bak,pdf”,<br>    //图片上传最大值KB<br>   “AttachImagesize”: 12400</p>
-<p>  },<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 新建一个ConnectionString类 ,接受此数据</span><br></pre></td></tr></table></figure></p>
-<pre><code> /// &lt;summary&gt;
-/// 接受数据库连接字符窜
-/// &lt;/summary&gt;
-public class ConnectionString {
-    /// &lt;summary&gt;
-    /// sql数据库 连接字符串
-    /// &lt;/summary&gt;
-    public string SqlConnectionString { get; set; }
-    /// &lt;summary&gt;
-    /// mongodb 数据库
-    /// &lt;/summary&gt;
-    public string MongoDbString { get; set; }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 新建一个ApplicationConfiguration类 ,接受此数据</span><br></pre></td></tr></table></figure>
-<p> public class ApplicationConfiguration<br>    {</p>
-<pre><code>    public string FileUpPath { get; set; }
-   public bool IsSingleLogin{ get; set; }
-    public string AttachExtension { get; set; }
-    public int AttachImagesize { get; set; }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">- 在strup.cs中添加获取代码</span><br></pre></td></tr></table></figure>
-<p>///读取配置文件字符窜<br>  services.Configure<connectionstring>(this.Configuration.GetSection(“ConnectionString”));</connectionstring></p>
-<p>  //读取配置文件<br>services.Configure<applicationconfiguration>(this.Configuration.GetSection(“ApplicationConfiguration”));</applicationconfiguration></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 在controller中注入获取</span><br></pre></td></tr></table></figure>
-<p> private  ConnectionString connectionString;<br>        /// <summary><br>        /// 构造函数 接受配置文件信息<br>        /// </summary><br>        public HomeController(IOptions<connectionstring> options) {<br>            connectionString = options.Value;</connectionstring></p>
-<pre><code>}
 
-public IOptions&lt;ApplicationConfiguration&gt; options;
-public HomeController(IUserService _userService, IOptions&lt;ApplicationConfiguration&gt; _appConfiguration) {
-    this.userService = _userService;
-    this.options = _appConfiguration;
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 当然 也可以创建一个类,单独获取配置信息</span><br></pre></td></tr></table></figure>
-<p>public class AppConfigurtaionServices<br>　　{<br>　　　　private readonly IOptions<applicationconfiguration> _appConfiguration;<br>　　　　public AppConfigurtaionServices(IOptions<applicationconfiguration> appConfiguration)<br>　　　　{<br>　　　　　　_appConfiguration = appConfiguration;<br>　　　　}</applicationconfiguration></applicationconfiguration></p>
-<p>　　　　public ApplicationConfiguration AppConfigurations<br>　　　　{<br>　　　　　　get<br>　　　　　　　　{<br>　　　　　　　　　　return _appConfiguration.Value;<br>　　　　　　　　}<br>　　　　}<br>　　}　　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#### 注意,不要忘记添加到注入 </span><br><span class="line"></span><br><span class="line">services.AddTransient&lt;AppConfigurtaionServices&gt;();  </span><br><span class="line"></span><br><span class="line"> 然后就可以使用了</span><br><span class="line"> </span><br><span class="line">![](https://images2015.cnblogs.com/blog/771789/201608/771789-20160804152623184-240740623.jpg)</span><br></pre></td></tr></table></figure></p>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//1:新建一个result类继承JsonResult</span><br><span class="line">  public class CustomsJsonResult : JsonResult</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        public override void ExecuteResult(ControllerContext context)</span><br><span class="line">        &#123;</span><br><span class="line">            if (context == null)</span><br><span class="line">            &#123;</span><br><span class="line">                throw new ArgumentNullException(&quot;context&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            HttpResponseBase response = context.HttpContext.Response;</span><br><span class="line">            if (Data != null)</span><br><span class="line">            &#123;</span><br><span class="line">                var timeConverter = new IsoDateTimeConverter &#123; DateTimeFormat = &quot;yyyy-MM-dd HH:mm:ss&quot; &#125;;//这里使用自定义日期格式，默认是ISO8601格式    </span><br><span class="line">             </span><br><span class="line">               </span><br><span class="line">                response.Write(JsonConvert.SerializeObject(Data, Formatting.Indented, timeConverter));</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//2:创建一个Base控制器,重写JsonResult</span><br><span class="line">   protected override JsonResult Json(object data, string contentType, Encoding contentEncoding)</span><br><span class="line">        &#123;</span><br><span class="line">            return new CustomsJsonResult &#123; Data = data, ContentType = contentType, ContentEncoding = contentEncoding &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public new JsonResult Json(object data, JsonRequestBehavior jsonRequest)</span><br><span class="line">        &#123;</span><br><span class="line">            return new CustomsJsonResult &#123; Data = data, JsonRequestBehavior = jsonRequest &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public new JsonResult Json(object data)</span><br><span class="line">        &#123;</span><br><span class="line">            return new CustomsJsonResult &#123; Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet &#125;;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 </the>
       
     </div>
@@ -361,13 +325,13 @@ public HomeController(IUserService _userService, IOptions&lt;ApplicationConfigur
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/25/core2/">.net core获取配置文件信息</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/15/mvcJsonResult/">mvc继承JsonResult进行时间格式化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
-        <p><span>发布时间:</span>2017-12-25, 14:15:10</p>
-        <p><span>最后更新:</span>2018-04-21, 12:14:57</p>
+        <p><span>发布时间:</span>2017-04-15, 15:43:22</p>
+        <p><span>最后更新:</span>2018-04-26, 14:31:12</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/25/core2/" title=".net core获取配置文件信息">http://ambiton.xin/2017/12/25/core2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/12/25/core2/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/15/mvcJsonResult/" title="mvc继承JsonResult进行时间格式化">http://ambiton.xin/2017/04/15/mvcJsonResult/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/04/15/mvcJsonResult/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -380,15 +344,15 @@ public HomeController(IUserService _userService, IOptions&lt;ApplicationConfigur
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/25/core3/">
-                    .net core 使用code first创建数据库
+                <a href="/2017/08/10/excel/">
+                    使用Aspose.Cells实现的导入导出(备忘)
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/25/core1/">
-                    .net core中授权认证1 使用Cookie-based认证实现
+                <a href="/2017/04/14/mvc2/">
+                    mvc中ef仓储类
                 </a>
             </div>
         
@@ -436,7 +400,7 @@ public HomeController(IUserService _userService, IOptions&lt;ApplicationConfigur
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":".net core获取配置文件信息　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"mvc继承JsonResult进行时间格式化　| Ethan个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -452,7 +416,7 @@ public HomeController(IUserService _userService, IOptions&lt;ApplicationConfigur
     
          <section class="changyan" id="comments">    
    <!--PC和WAP自适应版-->
-<div id="SOHUCS"  sid=".net core获取配置文件信息"></div> 
+<div id="SOHUCS"  sid="mvc继承JsonResult进行时间格式化"></div> 
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -476,7 +440,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/25/core3/" title="上一篇: .net core 使用code first创建数据库">
+            <a href="/2017/08/10/excel/" title="上一篇: 使用Aspose.Cells实现的导入导出(备忘)">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -484,7 +448,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/25/core1/" title="下一篇: .net core中授权认证1 使用Cookie-based认证实现">
+            <a href="/2017/04/14/mvc2/" title="下一篇: mvc中ef仓储类">
                 <i class="fa fa-angle-right"></i>
             </a>
         
