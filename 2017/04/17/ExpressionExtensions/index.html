@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Ethan个人博客">
 <meta property="og:description" content="使用 谓词表达式构建器 (动态添加表达式树)为mvc添加条件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T06:50:06.985Z">
+<meta property="og:updated_time" content="2018-04-26T06:51:49.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谓词表达式构建器 (动态添加表达式树)">
 <meta name="twitter:description" content="使用 谓词表达式构建器 (动态添加表达式树)为mvc添加条件">
@@ -310,61 +310,9 @@
         <p><excrept in="" index="" |="" 摘要=""><br>使用 谓词表达式构建器 (动态添加表达式树)为mvc添加条件<br><a id="more"></a></excrept></p>
 <the rest="" of="" contents="" |余下全文="">
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 表达式构造器代码</span><br></pre></td></tr></table></figure>
-<pre><code>/// &lt;summary&gt;
-/// 谓词表达式构建器
-/// &lt;/summary&gt;
-public static class ExpressionExtensions
-{
-    /// &lt;summary&gt;
-    /// 单元 true 表达式
-    /// &lt;/summary&gt;
-    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;
-    /// &lt;returns&gt;true&lt;/returns&gt;
-    public static Expression&lt;Func&lt;T, bool&gt;&gt; True&lt;T&gt;()
-    {
-        return item =&gt; true;
-    }
-
-    /// &lt;summary&gt;
-    /// 单元 false 表达式
-    /// &lt;/summary&gt;
-    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;
-    /// &lt;returns&gt;false&lt;/returns&gt;
-    public static Expression&lt;Func&lt;T, bool&gt;&gt; False&lt;T&gt;()
-    {
-        return item =&gt; false;
-    }
-
-    /// &lt;summary&gt;
-    /// 双元 Or 表达式
-    /// &lt;/summary&gt;
-    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;
-    /// &lt;param name=&quot;exprleft&quot;&gt;左表达式&lt;/param&gt;
-    /// &lt;param name=&quot;exprright&quot;&gt;右表达式&lt;/param&gt;
-    /// &lt;returns&gt;返回合并表达式&lt;/returns&gt;
-    public static Expression&lt;Func&lt;T, bool&gt;&gt; Or&lt;T&gt;(this Expression&lt;Func&lt;T, bool&gt;&gt; exprleft, Expression&lt;Func&lt;T, bool&gt;&gt; exprright)
-    {
-        var invokedExpr = Expression.Invoke(exprright, exprleft.Parameters.Cast&lt;Expression&gt;());
-        return Expression.Lambda&lt;Func&lt;T, bool&gt;&gt;(Expression.Or(exprleft.Body, invokedExpr), exprleft.Parameters);
-    }
-
-    /// &lt;summary&gt;
-    /// 双元 And 表达式
-    /// &lt;/summary&gt;
-    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;
-    /// &lt;param name=&quot;exprleft&quot;&gt;左表达式&lt;/param&gt;
-    /// &lt;param name=&quot;exprright&quot;&gt;右表达式&lt;/param&gt;
-    /// &lt;returns&gt;返回合并表达式&lt;/returns&gt;
-    public static Expression&lt;Func&lt;T, bool&gt;&gt; And&lt;T&gt;(this Expression&lt;Func&lt;T, bool&gt;&gt; exprleft, Expression&lt;Func&lt;T, bool&gt;&gt; exprright)
-    {
-        var invokedExpr = Expression.Invoke(exprright, exprleft.Parameters.Cast&lt;Expression&gt;());
-        return Expression.Lambda&lt;Func&lt;T, bool&gt;&gt;(Expression.AndAlso(exprleft.Body, invokedExpr), exprleft.Parameters);
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### 使用方法</span><br></pre></td></tr></table></figure>
-<p> Expression&lt;Func&lt;T, bool&gt;&gt;  expre=p=&gt;true;<br> if(!string.IsNullOrWhiteSpace(id))<br>     expre=expre.And(p=&gt;p.id==id);<br><code>`</code></p>
-</the>
+<hr>
+<h3 id="表达式构造器代码"><a href="#表达式构造器代码" class="headerlink" title="表达式构造器代码"></a>表达式构造器代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 谓词表达式构建器</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public static class ExpressionExtensions</span><br><span class="line">&#123;</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 单元 true 表达式</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;</span><br><span class="line">    /// &lt;returns&gt;true&lt;/returns&gt;</span><br><span class="line">    public static Expression&lt;Func&lt;T, bool&gt;&gt; True&lt;T&gt;()</span><br><span class="line">    &#123;</span><br><span class="line">        return item =&gt; true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 单元 false 表达式</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;</span><br><span class="line">    /// &lt;returns&gt;false&lt;/returns&gt;</span><br><span class="line">    public static Expression&lt;Func&lt;T, bool&gt;&gt; False&lt;T&gt;()</span><br><span class="line">    &#123;</span><br><span class="line">        return item =&gt; false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 双元 Or 表达式</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;</span><br><span class="line">    /// &lt;param name=&quot;exprleft&quot;&gt;左表达式&lt;/param&gt;</span><br><span class="line">    /// &lt;param name=&quot;exprright&quot;&gt;右表达式&lt;/param&gt;</span><br><span class="line">    /// &lt;returns&gt;返回合并表达式&lt;/returns&gt;</span><br><span class="line">    public static Expression&lt;Func&lt;T, bool&gt;&gt; Or&lt;T&gt;(this Expression&lt;Func&lt;T, bool&gt;&gt; exprleft, Expression&lt;Func&lt;T, bool&gt;&gt; exprright)</span><br><span class="line">    &#123;</span><br><span class="line">        var invokedExpr = Expression.Invoke(exprright, exprleft.Parameters.Cast&lt;Expression&gt;());</span><br><span class="line">        return Expression.Lambda&lt;Func&lt;T, bool&gt;&gt;(Expression.Or(exprleft.Body, invokedExpr), exprleft.Parameters);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 双元 And 表达式</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;typeparam name=&quot;T&quot;&gt;指定泛型 T&lt;/typeparam&gt;</span><br><span class="line">    /// &lt;param name=&quot;exprleft&quot;&gt;左表达式&lt;/param&gt;</span><br><span class="line">    /// &lt;param name=&quot;exprright&quot;&gt;右表达式&lt;/param&gt;</span><br><span class="line">    /// &lt;returns&gt;返回合并表达式&lt;/returns&gt;</span><br><span class="line">    public static Expression&lt;Func&lt;T, bool&gt;&gt; And&lt;T&gt;(this Expression&lt;Func&lt;T, bool&gt;&gt; exprleft, Expression&lt;Func&lt;T, bool&gt;&gt; exprright)</span><br><span class="line">    &#123;</span><br><span class="line">        var invokedExpr = Expression.Invoke(exprright, exprleft.Parameters.Cast&lt;Expression&gt;());</span><br><span class="line">        return Expression.Lambda&lt;Func&lt;T, bool&gt;&gt;(Expression.AndAlso(exprleft.Body, invokedExpr), exprleft.Parameters);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Expression&lt;Func&lt;T, bool&gt;&gt;  expre=p=&gt;true;</span><br><span class="line">if(!string.IsNullOrWhiteSpace(id))</span><br><span class="line">    expre=expre.And(p=&gt;p.id==id);</span><br></pre></td></tr></table></figure></the>
       
     </div>
     
@@ -375,7 +323,7 @@ public static class ExpressionExtensions
         <p><span>本文标题:</span><a href="/2017/04/17/ExpressionExtensions/">谓词表达式构建器 (动态添加表达式树)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Ethan</a></p>
         <p><span>发布时间:</span>2017-04-17, 15:43:22</p>
-        <p><span>最后更新:</span>2018-04-26, 14:50:06</p>
+        <p><span>最后更新:</span>2018-04-26, 14:51:49</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/17/ExpressionExtensions/" title="谓词表达式构建器 (动态添加表达式树)">http://ambiton.xin/2017/04/17/ExpressionExtensions/</a>
             <span class="copy-path" data-clipboard-text="原文: http://ambiton.xin/2017/04/17/ExpressionExtensions/　　作者: Ethan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -411,7 +359,7 @@ public static class ExpressionExtensions
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式构造器代码"><span class="toc-number">1.</span> <span class="toc-text">表达式构造器代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a></li></ol>
         
     </div>
     <style>
@@ -501,7 +449,7 @@ conf: 'prod_4087e8c0f77c2b414f9575e00ccbcc09'
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/identityserver/">identity server4 客服端模式认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core3/">.net core 使用code first创建数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core2/">.net core获取配置文件信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core1/">.net core中授权认证1 使用Cookie-based认证实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongoforcore/">.net core webapi中使用mongodb实现数据存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongo1/">mongodb简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi2/">.net core webapi使用swagger生成api帮助文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi1/">.net core webapi使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq4/">rabbitmq4 fanout分列模式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue3/">vuejs学习3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue2/">vuejs学习2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue1/">vuejs学习1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/excel/">使用Aspose.Cells实现的导入导出(备忘)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/ExpressionExtensions/">谓词表达式构建器 (动态添加表达式树)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/bootstrap-table/">mvc中使用bootstrap-table表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/mvcJsonResult/">mvc继承JsonResult进行时间格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvc2/">mvc中ef仓储类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvs1/">mvc中实现图片验证码</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/identityserver/">identity server4 客服端模式认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core3/">.net core 使用code first创建数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core2/">.net core获取配置文件信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/core1/">.net core中授权认证1 使用Cookie-based认证实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongoforcore/">.net core webapi中使用mongodb实现数据存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi2/">.net core webapi使用swagger生成api帮助文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/mongo1/">mongodb简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/21/webapi1/">.net core webapi使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq4/">rabbitmq4 fanout分列模式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/rabbitmq3/">rabbitmq3 一个生产者 多个消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq2/">rabbitmq2 在c#中简单使用rabbitmq 实现生产者和消费者</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/rabbitmq1/">rabbitmq基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue3/">vuejs学习3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue2/">vuejs学习2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/vue1/">vuejs学习1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/10/excel/">使用Aspose.Cells实现的导入导出(备忘)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/ExpressionExtensions/">谓词表达式构建器 (动态添加表达式树)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/bootstrap-table/">mvc中使用bootstrap-table表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/mvcJsonResult/">mvc继承JsonResult进行时间格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvc2/">mvc中ef仓储类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/mvs1/">mvc中实现图片验证码</a></li></ul>
 
 
 
